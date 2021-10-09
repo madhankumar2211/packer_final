@@ -1,0 +1,128 @@
+<section class="body">
+    <section class='profile'>
+        <h1 class='profilefont'>PROFILE</h1>
+    </section>
+    <section class='profile'>
+        <div class='profile_head'>
+            <div class="profile_name">
+                <h1>Hello {{specifiedUser.userName}}&nbsp;<i class="material-icons">edit</i></h1>
+            </div>
+            <div class="profile_pic"></div>
+        </div>
+    </section>
+    <section class="profile">
+        <div class='profile_body'>
+            <div class="usrdetail_head">User Details</div>
+            <div class="usrdetail">
+                <div>Phone</div>
+                <div>{{specifiedUser.phone}}&nbsp;<i class="material-icons">edit</i></div>
+            </div>
+            <div class="usrdetail">
+                <div>Email</div>
+                <div>{{specifiedUser.email}}&nbsp;<i class="material-icons">edit</i></div>
+            </div>
+            <div class="usrdetail">
+                <div>Password</div>
+                <div>{{specifiedUser.password}}&nbsp;<i class="material-icons">edit</i></div>
+            </div>
+        </div>
+    </section>
+    <section class="profile">
+        <div class="order_details">
+
+            <div class="order_head">Current Orders</div>
+
+            <div class="current_order">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Television</h5>
+                        <p class="card-text">Active</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">From - Chennai</li>
+                        <li class="list-group-item">To - Trichy</li>
+                        <li class="list-group-item">Date - 20-10-2020</li>
+                        <li class="list-group-item">Amount - Rs. 1200</li>
+
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="card-link">Cancel</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Television</h5>
+                        <p class="card-text">Active</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">From - Chennai</li>
+                        <li class="list-group-item">To - Trichy</li>
+                        <li class="list-group-item">Date - 20-10-2020</li>
+                        <li class="list-group-item">Amount - Rs. 1200</li>
+
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="card-link">Cancel</a>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="order_head">Past Orders</div>
+
+            <div class="history">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Television</h5>
+                        <p class="card-text">Completed</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">From - Chennai</li>
+                        <li class="list-group-item">To - Trichy</li>
+                        <li class="list-group-item">Date - 20-10-2020</li>
+                        <li class="list-group-item">Amount - Rs. 1200</li>
+                    </ul>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Television</h5>
+                        <p class="card-text">Completed</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">From - Chennai</li>
+                        <li class="list-group-item">To - Trichy</li>
+                        <li class="list-group-item">Date - 20-10-2020</li>
+                        <li class="list-group-item">Amount - Rs. 1200</li>
+                    </ul>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Television</h5>
+                        <p class="card-text">Completed</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">From - Chennai</li>
+                        <li class="list-group-item">To - Trichy</li>
+                        <li class="list-group-item">Date - 20-10-2020</li>
+                        <li class="list-group-item">Amount - Rs. 1200</li>
+                    </ul>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Television</h5>
+                        <p class="card-text">Completed</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">From - Chennai</li>
+                        <li class="list-group-item">To - Trichy</li>
+                        <li class="list-group-item">Date - 20-10-2020</li>
+                        <li class="list-group-item">Amount - Rs. 1200</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+{{specifiedUser | json}}
+{{specifiedUser.userName}}

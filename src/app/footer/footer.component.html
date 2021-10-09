@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Footerks</title>
+
+    
+    </head>
+<body>
+    <section id="footer">
+        <div class="title-text">
+            <h1> </h1>
+
+        </div>
+        <div class="footer-row">
+            <div class="footer-left">
+                <h1>Timing</h1>
+                <p><i class="fas fa-clock"></i>Monday to Friday - 5am to 9pm</p>
+                <p><i class="fas fa-clock"></i>Saturday and Sunday - 9am to 5pm</p>
+                <a href="#" style="color:white"><i class="fas fa-user-secret"></i>Terms & Conditions | Privacypolicy</a>
+            </div>
+            <div class="footer-right">
+                <h1>Get In Touch</h1>
+                <p> #30, abc colony, xyz city IN<i class="fas fa-map-marker-times"></i></p>
+                <a href="mailto:info@7packersandmovers.co.in" style="color:white">7PackersandMovers@gmail.com<i
+                        class="fas fa-envelope"></i></a>
+                <p> +91 9876543210<i class="fas fa-phone-square"></i></p>
+            </div>
+        </div>
+
+
+        <div class="social-links">
+            <a href="https://www.facebook.com"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://www.instagram.com"><i class="fab fa-instagram f1"></i></a>
+            <a href="https://www.twitter.com"><i class="fab fa-twitter-square f2"></i></a>
+            <a href="https://www.youtube.com"><i class="fab fa-youtube-square f3"></i></a>
+        </div>
+    </section>
+    <script>
+        var menuBtn = document.getElementById("menuBtn")
+        var sideNav = document.getElementById("sideNav")
+        var menu = document.getElementById("menu")
+        sideNav.style.right == "-250px";
+
+        menuBtn.onclick = function () {
+            if (sideNav.style.right == "-250px") {
+                sideNav.style.right = "0";
+                menu.src = "images/close.png";
+
+            }
+            else {
+                sideNav.style.right = "-250px";
+                menu.src = "images/menu.png";
+            }
+        }
+
+    </script>
+</body>
+</html>

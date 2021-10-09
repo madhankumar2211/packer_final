@@ -1,0 +1,208 @@
+body{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  sans-serif;;
+}
+
+/*-- Start-Navbar --*/
+header{
+
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    
+    background-color:white;
+
+}
+
+.nav_container{
+
+    width: 1400px;
+    
+    margin: auto;
+
+}
+
+.nav_checkbox{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 10px 0px;
+
+}
+
+.logo {
+    padding-left: 10px;
+}
+
+.logo img{
+	float: left;
+	width: 37%;
+	height: 20%;
+	display: flex;
+	align-items: center;
+	
+}
+
+
+.iconn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    font-size: 20px;
+}
+
+
+
+@media (max-width: 770px){
+    ._searchh1{
+        width: 200px;
+        margin-left: -25%;
+    }
+
+    ._searchh1 .searchh_box1{
+        position: relative;
+        width: 200px;
+        height: 40px;
+    }
+    
+} 
+
+/*--End-Search--*/
+
+.tab-nav{
+
+    outline: none;
+    display: none;
+
+}
+
+.label{
+
+    display: none;
+    color: skyblue;
+
+}
+
+.burger{
+
+    width: 35px;
+    height: 5px;
+    background-color: skyblue;
+    margin-top: 5px;
+
+}
+
+.content_nav{
+
+    grid-column: 3;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+.content_nav li{
+
+    display: inline-block;
+    padding-right: 20px;
+
+}
+
+.content_nav li a{
+
+    text-decoration: none;
+    color: #073fb8;
+    position: relative;
+    font-weight: bold;
+
+}
+
+.content_nav li a::after{
+
+    content: '';
+    display: block;
+    height: 2px;
+    background-color:skyblue;
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform-origin: left;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 0.5s;
+
+}
+
+.content_nav li a:hover::after{
+
+    transform: scale(1, 1);
+
+}
+
+
+
+@media screen and (max-width: 1280px){
+
+    .nav_container{
+
+        width: 100%;
+
+    }
+
+}
+
+@media screen and (max-width: 770px){
+
+    .label{
+
+        display: grid;
+        cursor: pointer;
+        grid-column: 3;
+        padding-right: 10px;
+
+    }
+
+    .content_nav{
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column: 1/4;
+        text-align: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: all ease-in-out 0.6s;
+
+    }
+
+    .nav_checkbox input:checked ~ .content_nav{
+
+        max-height: 500px;
+
+    }
+
+    .content_nav li{
+
+        padding: 15px 0px;
+
+    }
+
+    .logo img{
+        float: left;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        
+    }
+
+}
+
+/*-- END-Navbar --*/
+
+

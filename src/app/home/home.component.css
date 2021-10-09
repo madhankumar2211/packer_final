@@ -1,0 +1,20 @@
+.Heading .title{
+	position:relative;
+    top:100px;
+	text-align:center;
+	font-size:30px;
+	font-weight:500;
+	margin-bottom:60px;
+	padding-bottom:20px;
+	font-family:sans-serif;
+}
+.Heading .title::before{
+	content:"";
+	position:absolute;
+	bottom:0px;
+	left:50%;
+	width:200px;
+	height:3px;
+	background:skyblue;
+	transform:translateX(-50%);
+}

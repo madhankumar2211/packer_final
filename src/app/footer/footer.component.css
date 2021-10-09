@@ -1,0 +1,73 @@
+#footer{
+    padding: 100px 0 20px;
+    background:black;
+}
+.footer-row{
+    width:80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+}
+.footer-left, .footer-right,.footer-center{
+    flex-basis:45%;
+    padding: 10px;
+    margin-bottom:20px;
+}
+    .footer-right{
+    text-align:right;
+}
+.footer-row h1{
+    margin:10px 0;
+    color: skyblue;
+}
+.footer-row p{
+    line-height:35px;
+    color:white;
+}
+.footer-left .fas, .footer-right .fas{
+    font-size:20px;
+    color:skyblue;
+    margin:10px;
+}
+.social-links{
+    text-align:center;
+}
+.social-links .fab{ 
+height:40px;
+width:40px;
+font-size:20px;
+line-height:40px;
+border: 1px solid skyblue;
+margin: 40px 5px 0;
+color:skyblue;
+cursor:pointer;
+transition:.5s;
+}
+.social-links .fab:hover{
+    background:none;
+    color:blue;
+    transform: translateY(-7px);
+}
+
+.social-links .fab:hover.f1{
+    background:none;
+    color:#cd486b;
+    transform: translateY(-7px);
+}
+.social-links .fab:hover.f2{
+    background:none;
+    color:blue;
+    transform: translateY(-7px);
+} 
+.social-links .fab:hover.f3{
+    background:none;
+    color:red;
+    transform: translateY(-7px);
+}
+@media screen and (max-width:770px){
+    .footer-left, .footer-right{
+        flex-basis:100%;
+        font-size:14px;
+    }
+}
