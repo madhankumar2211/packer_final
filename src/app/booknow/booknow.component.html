@@ -1,1 +1,174 @@
-<p>booknow works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.jpg" />
+
+    <title>7PACKERS & MOVERS</title>
+</head>
+
+<body>
+    <section class="bgc">
+        <br>
+        <div class="Heading">
+            <h1 class="title">ADDRESS AND PACKAGE</h1>
+        </div>
+        <!-- <div class="space">
+            <h1 id="top">ADDRESS AND PACKAGE</h1>
+        </div> -->
+        <div id="booking_img">
+            <div class="card">
+
+                <img src="../../assets/images/sample.png" id="size_i">
+
+            </div>
+            <div class="card">
+                
+                    <form action="">
+
+                    <div  [formGroup]="bookingForm">
+                        <input id="name"  type="text" placeholder="Enter Your Name" [(ngModel)]="cusname" formControlName="name"/>
+                        <div>
+                            <h6 style="color:red; font-size:20px;"
+                            *ngIf=" name.touched && name.errors?.required" >
+                              First name is required
+                            </h6>
+                            <h6 style="color:red; font-size:20px;"
+                            *ngIf=" name.touched && name.errors?.minlength" >
+                            Minimum 2 characters Required
+                            </h6>
+                            <h6 style="color:red; font-size:20px;"
+                            *ngIf=" name.touched && name.errors?.maxlength" >
+                            Maximum 30 characters Required
+                            </h6>                            
+                        </div>
+
+                        <input id="number" name="number" type="number" placeholder="Enter Your Mobile Number" [(ngModel)]="cusnum" formControlName="num" />
+                        <div>
+                            <h6 style="color:red; font-size:20px;"
+                            *ngIf=" num.touched && num.errors?.required" >
+                              First name is required
+                            </h6>
+                            <h6 style="color:red; font-size:20px;"
+                            *ngIf=" num.touched && num.errors?.pattern" >
+                            Enter only 10 numbers
+                            </h6>                           
+                        </div>                        
+
+                        <input id="mail" name="mail" type="text" placeholder="Enter Your E-Mail ID" [(ngModel)]="cusmail" formControlName="mail" />
+                        <div>
+                            <h6 style="color:red; font-size:20px;"
+                            *ngIf=" mail.touched && mail.errors?.required" >
+                              Email is required
+                            </h6>
+                            <h6 style="color:red; font-size:20px;"
+                            *ngIf=" mail.touched && mail.errors?.pattern" >
+                            Enter a vaild mail Id
+                            </h6>                            
+                        </div>
+
+                        <input id="weight" name="weight" type="number" placeholder="Package Weight(approximate)" [(ngModel)]="cuspackagewei" formControlName="weight" min="1" max="999" />
+                        <div>
+                            <h6 style="color:red; font-size:20px;"
+                            *ngIf=" weight.touched && weight.errors?.required" >
+                              Enter the valid weight
+                            </h6>
+                            <h6 style="color:red; font-size:20px;"
+                            *ngIf=" weight.touched && weight.errors?.pattern" >
+                            Enter weight between 1-999
+                            </h6> 
+                                                      
+                        </div>
+
+                        
+                        <select name="Vehi_type" id="Vehi_type" placeholder="Please select the vehicle" [(ngModel)]="v_type" required>
+                            <option value="" disabled selected >Please select Vehicle Type</option>
+                            <option value="Mini Truck">Mini Truck</option>
+                            <option value="Container">Container</option>
+                            <option value="Tata Ace">Tata Ace</option>
+                            <option value="Mahendra Bolera">Mahendra Bolera</option>
+                            <option value="20 Feet Open All Side">20 Feet Open All Side</option>
+                        </select>
+
+
+                        <input id="From" name="from" type="text" placeholder="Moving From" [(ngModel)]="fromadd" formControlName="from" />
+                        <div>
+                            <h6 style="color:red; font-size:20px;"
+                            *ngIf=" from.touched && from.errors?.required" >
+                              Enter valid address
+                            </h6>
+                            <h6 style="color:red; font-size:20px;"
+                            *ngIf=" from.touched && from.errors?.minlength" >
+                            Enter valid address
+                            </h6>                           
+                        </div>
+
+
+
+                        <select name="Select City" id="textfield"  >
+                            <option value="" disabled selected>Please select the city from</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi">Delhi</option>
+                        </select>
+
+
+
+                        <input id="to" name="to" type="text" placeholder="Moving To" [(ngModel)]="toadd" formControlName="to" />
+                        <div>
+                            <h6 style="color:red; font-size:20px;"
+                            *ngIf=" to.touched && to.errors?.required" >
+                              Enter valid address
+                            </h6>
+                            <h6 style="color:red; font-size:20px;"
+                            *ngIf=" to.touched && to.errors?.minlength" >
+                            Enter valid address
+                            </h6>                            
+                        </div>
+
+
+                        
+                        <select name="Select City" id="textfield" required formControlName="to_c">
+                            <option value="" disabled selected>Please select the city to</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi">Delhi</option>
+                        </select>
+
+                        
+                        <input type="date" id="textfield" name="Textfiels" min="2021-06-09" max="2022-12-31"
+                            [(ngModel)]="datee" formControlName="date" />
+                        <!-- <label for="" id="y"> Do You Need Insurance ?
+                    
+                              <input type="radio" id="insurance" name="fav_language" value="1" [(ngModel)]="inc">Yes
+                            <input type="radio" id="insurance" name="fav_language" value="0" [(ngModel)]="inc">No
+                        </label> -->
+                        <a routerLink="/Payment" ><button>BOOK NOW</button></a>
+                        <button> <a href=""
+                                onclick="alert('                                         Hello\n                                   How are you?\nWe recieved your request, we will contact you by end of the day \n                            THANKS FOR CHOOSING US')">
+                            </a>Consultwith US</button>
+                        </div>
+                    </form>
+                
+            </div>
+            <div>
+                <div class="booking">
+                    <ul>
+                        <li><a routerLink="/Quote">Quote</a></li>
+                    </ul>
+                </div>
+                <br>
+            </div>
+        </div>
+    </section>
+   
+</body>
+
+</html>

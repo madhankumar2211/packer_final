@@ -2,10 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BooknowComponent } from './booknow/booknow.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { ForgotComponent } from './forgot/forgot.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { PaymentComponent } from './payment/payment.component';
 import { ProfileComponent } from './profile/profile.component';
+import { QuoteComponent } from './quote/quote.component';
+import { RegisterComponent } from './register/register.component';
 import { ServiceComponent } from './service/service.component';
+import { StatusComponent } from './status/status.component';
 import { TrackingComponent } from './tracking/tracking.component';
 import { WhychooseusComponent } from './whychooseus/whychooseus.component';
 
@@ -45,6 +50,26 @@ const routes: Routes = [
   {
     path : 'Login',
     component : LoginComponent
+  },
+  {
+    path : 'Forgot',
+    component : ForgotComponent
+  },
+  {
+    path : 'Register',
+    component : RegisterComponent
+  },
+  {
+    path : 'Payment',
+    component : PaymentComponent
+  },
+  {
+    path : 'Status',
+    component : StatusComponent
+  },
+  {
+    path : 'Quote',
+    component : QuoteComponent
   },
 ];
 

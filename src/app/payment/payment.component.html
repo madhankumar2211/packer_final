@@ -1,0 +1,58 @@
+<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<div class="payment-container"> 
+    <div class="pay-box">
+        <h2>Select Payment Method</h2>
+        <div class="method">
+            <i class="fa fa-credit-card" aria-hidden="true"><label class="icon-text"><a href="#">Credit Card</a></label></i>
+            <i class="fa fa-cc-visa" aria-hidden="true"><label class="icon-text"><a href="#">Debit Card</a></label></i>
+            <i class="fa fa-university" aria-hidden="true"><label class="icon-text"><a href="#">Net Bank</a></label></i>
+            <i class="fa fa-inr" aria-hidden="true"><label class="icon-text"><a href="#">UPI</a></label></i>
+        </div>
+    </div>
+
+    <div class="pay-box">
+        <div>
+            <h2>Card Information</h2>
+            <form action="final.html">
+                <input type="text" class="field" placeholder="Name On The Card" required>
+                <input type="text" class="field" placeholder="Card Number" required>
+                <div class='exp'>
+                    <label>Exp. Month/Year</label>
+                    <select>
+                        <option selected disabled>Month</option>
+                        <option>Jan</option>
+                        <option>Feb</option>
+                        <option>Mar</option>
+                        <option>Apr</option>
+                        <option>May</option>
+                        <option>Jun</option>
+                        <option>Jul</option>
+                        <option>Aug</option>
+                        <option>Sep</option>
+                        <option>Oct</option>
+                        <option>Nov</option>
+                        <option>Dec</option>
+                    </select>
+                    <select>
+                        <option selected disabled>Year</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                        <option>2026</option>
+                        <option>2027</option>
+                        <option>2028</option>
+                        <option>2029</option>
+                        <option>2030</option>
+                        <option>2031</option>
+                        <option>2032</option>
+                    </select>
+                </div>
+                <input type="password" class="field" placeholder="CCV" required>
+                <a routerLink="/Tracking"><button class="btn">Pay Now</button></a>
+            </form>
+            <a class = 'cancel' routerLink ="/Home"> Cancel</a>
+        </div>
+    </div>
+</div>

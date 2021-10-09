@@ -55,13 +55,18 @@
                                 <input type="text" name="" formControlName="email" />
                                 <span>Email</span>
                             </div>
+                            <h5 *ngIf="email.touched && email.pristine">Please enter your Email ID</h5>
+                            <h5 *ngIf=" email.touched && email.errors?.pattern">Enter Valid Email Id</h5>
                             <div class="inputbox">
                                 <textarea formControlName="message"></textarea>
                                 <span>Type Your Message...</span>
                             </div>
+                            <h5 *ngIf="message.touched && message.pristine">Enter Your Message</h5>
+                            
                             <div class="inputbox">
                                 <input type="submit" name="" value="Send" (click)="getalldetails()" [disabled]="true" />
                             </div>
+                            
                         </form>
                     </div>
 

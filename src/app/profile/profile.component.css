@@ -8,6 +8,28 @@
     padding: 30px;border: 3px solid rgb(7, 73, 82);
     box-shadow: 5px 10px rgb(7, 145, 145);
 }
+
+.Heading .title{
+	position:relative;
+    top:70px;
+	text-align:center;
+	font-size:30px;
+	font-weight:500;
+	margin-bottom:60px;
+	padding-bottom:20px;
+	font-family:sans-serif;
+}
+.Heading .title::before{
+	content:"";
+	position:absolute;
+	bottom:0px;
+	left:50%;
+	width:190px;
+	height:3px;
+	background:skyblue;
+	transform:translateX(-50%);
+}
+
 .profile_name{
     font-size: 25px;
     margin-left: 30px;

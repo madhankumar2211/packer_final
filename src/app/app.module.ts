@@ -17,6 +17,12 @@ import { BooknowComponent } from './booknow/booknow.component';
 import { TrackingComponent } from './tracking/tracking.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { LoginComponent } from './login/login.component';
+import { SliderComponent } from './slider/slider.component';
+import { ForgotComponent } from './forgot/forgot.component';
+import { RegisterComponent } from './register/register.component';
+import { PaymentComponent } from './payment/payment.component';
+import { StatusComponent } from './status/status.component';
+import { QuoteComponent } from './quote/quote.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,13 @@ import { LoginComponent } from './login/login.component';
     BooknowComponent,
     TrackingComponent,
     ContactusComponent,
-    LoginComponent
+    LoginComponent,
+    SliderComponent,
+    ForgotComponent,
+    RegisterComponent,
+    PaymentComponent,
+    StatusComponent,
+    QuoteComponent
   ],
   imports: [
     BrowserModule,

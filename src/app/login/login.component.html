@@ -1,1 +1,50 @@
-<p>login works!</p>
+<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<div class="container">
+    <div class="logreg-box">
+      <div class="login-left"></div>
+      <div class="login-right">
+        <a href="home.html"><label class="close">X</label></a>
+        <img class="logo" src="../../assets/images/logo5.jpg"/>
+        <h2>Login</h2>
+        <form [formGroup] = "loginForm">
+          <input
+            type="text"
+            class="field"
+            placeholder="Enter your Email"
+            formControlName = "email"
+          />
+          <div *ngIf="email.errors">
+              <h5 *ngIf="email.errors?.required" class="valid">
+                *Email is Required Field
+              </h5>
+              <h5 *ngIf="email.errors?.email" class="valid">
+                *Not a Valid email
+              </h5>
+          </div>
+          <input type="password" class="field" placeholder="Password" formControlName = "psw"/>
+
+          <div *ngIf="psw.errors">
+              <h5 *ngIf="psw.errors?.required" class="valid">
+                *Password is Required Field
+              </h5>
+          </div>
+
+          <a routerLink="/Home"><button class="btn">Login</button></a>
+          
+          <a class="forgot" routerLink="/Forgot">Forgot Password ?</a>
+          <label class="signup">New User ?
+            <a routerLink="/Register">Register Now</a>
+          </label>
+        </form>
+        <hr />
+        <label>or</label>
+        <hr />
+        <div class="social">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+          <i class="fa fa-google" aria-hidden="true"></i>
+          <i class="fa fa-twitter-square" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  

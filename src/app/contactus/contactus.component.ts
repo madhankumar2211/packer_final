@@ -13,12 +13,18 @@ export class ContactusComponent implements OnInit {
   ngOnInit(): void {
     this.contactform = this.fb.group({
       fullname : ['',Validators.required],
-      email :['',Validators.required],
+      email :['',[Validators.required,Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+[a-zA-Z]+$")]],
       message :['',Validators.required]
     })
   }
   get fullname() {
     return this.contactform.controls['fullname'];
+  }
+  get email() {
+    return this.contactform.controls['email'];
+  }
+  get message() {
+    return this.contactform.controls['message'];
   }
   getalldetails(){
     

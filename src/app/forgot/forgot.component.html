@@ -1,0 +1,25 @@
+<div class="container"> 
+    <div class="logreg-box">
+        <div class="login-left"></div>
+        <div class="login-right">
+            <a href="#"><label class="close">X</label></a>
+            <img class = 'logo' src="../../assets/images/logo5.jpg">
+            <h2>Forgot Password</h2>
+            <form [formGroup] = "userForm">
+                <input type="text" class="field" placeholder="Email or Phone Number" formControlName = "email">
+                <div *ngIf="email.errors">
+                    <h5 *ngIf="email.errors?.required" class="valid">
+                      *Email is Required Field
+                    </h5>
+                    <h5 *ngIf="email.errors?.email" class="valid">
+                      *Not a Valid email
+                    </h5>
+                </div>
+                <button class="btn" [disabled]="!email.valid" (click) = "s()">Reset</button><br><br>
+                <a routerLink="/Login">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+  

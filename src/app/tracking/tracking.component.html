@@ -1,1 +1,46 @@
-<p>tracking works!</p>
+<div class="Heading">
+    <h1 class="title">TRACK YOUR SHIPMENT</h1>
+</div>
+
+
+<div id="all_all">
+    <div id="img_side">
+        <img src="../../assets/images/k6.jfif" /> &nbsp; &nbsp;
+    </div>
+    <form [formGroup]="alldata" ngSubmit="getall()">
+        <div id="box">
+            <input type="text" name="txt" placeholder="Name" formControlName="nam"><br /><br />
+            <h5>
+                <div *ngIf="f.nam.touched && f.nam.errors?.required">
+                    Name is required.
+                </div>
+            </h5>
+
+            <input type="number" name="mob" placeholder="Mobile" formControlName="mob"><br /><br />
+            <h5>
+                <div *ngIf="f.mob.touched && f.mob.errors?.required">Mobile Number is required.</div>
+                <div *ngIf="f.mob.touched && f.mob.errors?.pattern">Please, Enter 10 digit Mobile Number.</div>
+            </h5>
+
+            <h5> <input type="text" name="txt" placeholder="Track ID Eg:ABC123" pattern="[A-Z]{3}[0-9]{3}"
+                    formControlName="tid"><br /><br /></h5>
+
+            <label>Booking Date</label><br />
+            <input type="date" id="ordat" formControlName="bd">
+            <div *ngIf="f.bd.touched && f.bd.errors?.required">
+                date is required.
+            </div>
+            <br />
+            <br />
+            <br />
+            <a routerLink="/Status"><input type="submit" value="Track"></a>
+        </div>
+        <!-- <button (click)="getall()" >Track</button> -->
+
+    </form>
+
+
+
+
+
+</div>

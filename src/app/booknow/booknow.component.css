@@ -1,0 +1,187 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:  sans-serif;
+}
+
+
+
+.bgc{
+    background: white;
+    width: auto ;
+}
+
+
+.Heading .title{
+	position:relative;
+    top:70px;
+	text-align:center;
+	font-size:30px;
+	font-weight:500;
+	margin-bottom:60px;
+	padding-bottom:20px;
+	font-family:sans-serif;
+}
+.Heading .title::before{
+	content:"";
+	position:absolute;
+	bottom:0px;
+	left:50%;
+	width:300px;
+	height:3px;
+	background:skyblue;
+	transform:translateX(-50%);
+}
+
+/*heading*/
+.space{
+    margin-top: 60px;
+}
+#top{
+    font-size: 4em;
+    text-align: center;
+}
+/*sec-1*/
+.booking img{
+    width: 500px;
+    height:auto;
+   
+}
+.card {
+    border-radius: 80px;
+    text-align: center;
+    font-size: 16px;
+    height: auto;
+    margin: 20px;
+    display: inline-block;
+    width: 450px;
+    
+}
+#booking_img {
+    text-align: center;
+    position: relative;
+    top :30px;
+}
+#textfield,#name,#number,#mail,#weight,#Vehi_type,#From,#From_city,#to,#to_city,#kilo,#y{
+    display: block;
+    margin-bottom: 3em;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 2px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#insurance{
+    display: inline-block;
+}
+p{
+    display: block;
+    margin-bottom: 3em;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 2px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.booking li{
+    list-style-type: none;
+    display: inline-block; 
+    padding:10px;
+    margin-top: 40px;
+}
+button{
+    list-style-type: none;
+    display: inline-block; 
+    padding:10px;
+    margin-top: 10px;
+    margin-right: 20px;
+    background-color: lightblue;
+    font-size: 1em;
+    color: black;
+}
+button:hover{
+    background-color: rgba(167, 164, 164, 0.5);
+}
+.booking a{
+    text-decoration: none;
+    padding: 0.5em 1em;
+    background-color: lightblue;
+    font-size: 2em;
+    color: black;
+}
+.booking a:hover{
+    background-color: rgba(167, 164, 164, 0.5);
+}
+#size_i{
+    width: 100%;
+    height: 80vh;
+    border-bottom: 0px;
+}
+#new_one{
+    width: 200px;
+    height: 200px;
+}
+
+
+@media screen and (max-width: 770px){
+    .banner-text h1{
+        font-size: 44px;
+    }
+    .banner-btn a{
+        display: block;
+        margin: 20px auto;
+    }
+    /*heading*/
+    .space{
+        margin-top: 68px;
+        margin-bottom: 0px;
+    }
+    #top{
+        font-size: 1.5em;
+    }
+    /*main-sec/secion-1*/
+    .card {
+        border-radius: 80px;
+        text-align: center;
+        font-size: 16px;
+        height: auto;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        display: block;
+        width: 100%;
+        
+    }
+    #size_i{
+        width: 170px;
+        height: 100px;
+    }
+    .booking li{
+        list-style-type: none;
+        display: block; 
+        padding:0px;
+        margin-bottom: 2em;
+        margin-right: 0px;
+    }
+    .booking a{
+        text-decoration: none;
+        padding: 0.5em 1em;
+        background-color: lightblue;
+        font-size: 1em;
+        color: black;
+        margin-right: 0px;
+    }
+    .booking a:hover{
+        background-color: rgba(167, 164, 164, 0.5);
+    }
+  
+}
+
+/*Erranomous*/
+input.ng-touched.ng-invalid{
+    border:2px solid red;
+  }

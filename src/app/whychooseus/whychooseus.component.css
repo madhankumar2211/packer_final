@@ -1,0 +1,261 @@
+
+
+
+
+/*why choose us*/
+
+
+img{
+    
+    max-width:50%;
+    height:auto;
+}
+p{
+    line-height:1.7;
+    margin:0;
+    font-size:16px;
+}
+.title-section{
+    padding-bottom:50px;
+    text-align:center;
+
+}
+.title-section h1{
+	margin-top:60px;
+}
+.title-section-main{
+    font-size:35px;
+    font-weight:600px;
+    text-transform:capitalize;
+	margin-top:0px;
+
+}
+.title-section-desc{
+    font-size:16px;
+    padding-top:15px;
+    color: #666;
+    max-width: 60%;
+    display:block;
+    margin: auto;
+    line-height:1.7;
+}
+#why-choose-us{
+    padding-top: 30px;
+    padding-bottom:50px;
+
+}
+#why-choose-us .row{
+    padding-top:10px;
+    
+}
+.wcu-text-box{
+    width:90%;
+    height:85%;
+    box-shadow:0 0 10px #ccc;
+    padding:25px;
+    margin-bottom:30px;
+    text-align:center;
+}
+.wcu-text-box-icon{
+    font-size:35px;
+    padding-bottom:20px;
+    color:#42a4ff
+}
+.wcu-text-box-title{
+    font-size:20px;
+    text-transform:capitalize;
+    font-weight:600;
+    padding-bottom:10px;
+}
+.wcu-text-box-desc p{
+    font-size:15px;
+    text-align:initial;
+
+}
+.wcu-text-box-blue{
+    background:#42a4ff none repeat scroll 0 0;
+    overflow: hidden;
+    color: #fff;
+}
+.wcu-text-box-blue .wcu-text-box-icon{
+    color: #fff;
+}
+/*why choose us responsive*/
+@media(max-width:770px){
+    .title-section-main{
+        font-size:25px;
+    }
+    
+    .title-section-desc{
+        max-width:100%;
+    }
+    .wcu-text-box-blue{
+        background: #fff none repeat scroll 0 0;
+        color:#444;
+    }
+    .wcu-text-box-blue .wcu-text-box-icon{
+        color: #4214ff
+    }
+}
+@media(min-width:768px) and (max-width:1023px){
+    .wcu-text-box-blue{
+        background: #fff none repeat scroll 0 0;
+        color:#444;
+    }
+    .wcu-text-box-blue .wcu-text-box-icon{
+        color: #4214ff
+    }
+
+}
+/*our partners*/
+.slider{
+    height: 250px;
+    margin: auto;
+    position: relative;
+    width: 90%;
+    display: grid;
+    place-items: center;
+    overflow:hidden;
+}
+.slide-Track{
+ display: flex;
+ width: 100%;
+ animation:scroll 30s linear infinite;
+}
+/* @keyframes scroll{
+    0%{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(100%);
+
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+} */
+.slide{
+    height: 200px;
+    width: 250px;
+    display: flex;
+    align-items:center;
+    padding:15px;
+    perspective:100px;
+}
+img{
+    width:100%;
+    transition:transform 1%;
+}
+img:hover{
+    transform:translateZ(20px);
+    }
+
+.slider::before,
+.slider::after{
+    background: linear-gradient(to right,rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 15%;
+    z-index:2;
+}
+.slider::before{
+    left:0;
+    top:0;
+}
+.slider::after{
+    right:0;
+    top:0;
+    transform: rotateZ(100deg);
+}
+/*gallery*/
+#head h1{
+    
+	text-align:center;
+	top:600px;
+
+}
+.contain{
+    width: 1300px;
+    position: relative;
+    top:100px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+	margin-left:100px;
+	
+}
+
+.contain .box
+{
+    background-color: thistle;
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    display: inline-block;
+
+}
+
+.contain .box .imgBox{
+    position: relative;
+    overflow: hidden;
+	
+	
+    
+}
+
+.contain .box .imgBox img{
+    max-width: 100%;
+    height: 300px;
+    transition: transform 2s;
+	
+	
+}
+.contain .box:hover .imgBox img{
+    transform: scale(1.2);
+}
+.contain .box:hover .details{
+    transform: scaleY(1);
+
+}
+/*gallery responsive*/
+@media(max-width:800px)
+{
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+	
+    .contain{
+		width:50%;
+        display:flex;
+		flex-direction: column;
+        margin-bottom:60px;
+        top:100px;
+        align-items: center;
+        padding-bottom: 50px;
+    }
+    .Heading{
+        position:absolute;
+        top:70px;
+        width: 350px;
+    }
+}
+@media(min-width:801px) and (max-width:1800px){
+    *{
+        margin: 0%;
+        padding: 0%;
+
+    }
+    .contain{
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 50px;
+    }
+}
+
+
+
