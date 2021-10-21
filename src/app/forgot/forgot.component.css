@@ -2,7 +2,6 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family:  sans-serif;
 }
 
 body {
@@ -112,13 +111,14 @@ body {
 .login-left{
     background:url("../../assets/images/bg.jpg") no-repeat center;
     background-size:cover;
-    width: 100%;
-    height: 580px;
+    width: 650px;
+    height: 600px;
 
 }
 
 .login-right{
     padding: 25px 25px;
+    width: 400px;
 
 }
 .reg-left{
@@ -191,6 +191,7 @@ hr{
 }
 
 .btn{
+    margin: 20px;
 	width: 40%;
 	padding: 8px 10px;
 	background-color: #1983c9;
@@ -225,25 +226,29 @@ hr{
 
 
 @media screen and (max-width: 1050px){
-    .pay-box{
-        width: 700px;
+    .container{
+        padding: 30px 30px;
     }
-    .method{
-        width: 700px;
-    }.method i{
-        font-size: 30px;
+
+    .logreg-box{
+        width: 800px;
+        display: grid;
+        justify-content: stretch;
+	}
+    .login-right{
+        padding: 25px 50px;
+        width: 100%;
     }
-    .icon-text{
-        padding: 10PX;
-        display: block;
-        font-size: 12px;
-        font-weight: bold;
-    }
+	.login-left{
+        margin: 0;
+		height: 300px;
+        width: 100%;
+	}
 	
 }
 @media screen and (max-width: 880px){
     .container{
-        padding-top: 150px;
+        padding-top: 50px;
     }
 	.logreg-box{
         width: 600px;
@@ -268,12 +273,15 @@ hr{
     .social i{
         margin: 10px;
     }
-    .logo{
+    /* .logo{
         display: none;
-    }
+    } */
 }
 
 @media screen and (max-width: 700px){
+    .container{
+        padding: 80px 30px;
+    }
     .pay-box{
         width: 400px;
     }
@@ -291,10 +299,11 @@ hr{
     .logreg-box{
         width: 400px;
         display: grid;
+        justify-content: stretch;
 	}
     .login-left{
         margin: 0;
-		height: 150px;
+		height: 200px;
         width: 100%;
 	}
 	.btn{

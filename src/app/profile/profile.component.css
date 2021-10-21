@@ -1,17 +1,10 @@
-.profile_head{
-    padding: 10px;
-    /* height: 100px; */
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin: 20px;
-    padding: 30px;border: 3px solid rgb(7, 73, 82);
-    box-shadow: 5px 10px rgb(7, 145, 145);
+*{
+    margin-top: 0;
+    padding-top: 0;
 }
-
 .Heading .title{
 	position:relative;
-    top:70px;
+    top:100px;
 	text-align:center;
 	font-size:30px;
 	font-weight:500;
@@ -24,18 +17,57 @@
 	position:absolute;
 	bottom:0px;
 	left:50%;
-	width:190px;
+	width:180px;
 	height:3px;
 	background:skyblue;
 	transform:translateX(-50%);
 }
 
+
+
+
+.profile_head{
+    padding: 10px;
+    /* height: 100px; */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 20px;
+    padding: 30px;border: 3px solid rgb(7, 73, 82);
+    box-shadow: 5px 10px rgb(7, 145, 145);
+}
 .profile_name{
     font-size: 25px;
     margin-left: 30px;
     padding-top: 30px;
+    display: flex;
 }
+.profile_name .input{
+    text-decoration: none;
+    font-size: 25px
+}
+
+.btn{
+	width: 100%;
+	padding: 8px 10px;
+	background-color: #1983c9;
+	color: #fff;
+	font-size: 18px;
+    font-weight: bold;
+	border-radius: 7px;
+}
+
+.btn:hover{
+    background-color: #42a788;
+}
+
 .profile_pic{
+    margin-right: 30px;
+    margin-top: 30px;
+}
+
+
+/* .profile_pic{
     margin-right: 30px;
     border: 1px solid rgb(95, 231, 174);
     width: 90px;
@@ -43,7 +75,7 @@
     border-radius: 50%;
     background: url('https://www.searchpng.com/wp-content/uploads/2019/02/Men-Profile-Image.png');
     background-size: cover;
-}
+} */
 .profile{
     
     display: flex;
@@ -89,7 +121,7 @@
     box-shadow: 5px 10px rgb(7, 145, 145);
     padding: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 .order_head{
     font-size: 30px;
@@ -99,12 +131,18 @@
     text-align: center;
 }
 
+.text{
+    color:green;
+    font-size: 25px;
+    font-weight: bold;
+}
+
 .history{
     border: 3px solid rgb(7, 73, 82);
     box-shadow: 5px 10px rgb(7, 145, 145);
     padding: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 
 }
 

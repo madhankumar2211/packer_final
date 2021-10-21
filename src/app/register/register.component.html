@@ -1,60 +1,62 @@
 <div class="container"> 
-    <div class="logreg-box">
-        <div class="reg-left">
-            <a href="#"><label class="close">X</label></a>
-            <img class = 'logo' src="../../assets/images/logo5.jpg">
-            <h2>Create Account</h2>
-            
-            <form [formGroup] = "regForm">
-                <input type="text" class="field" placeholder="Full Name" formControlName = "name">
-                <div *ngIf="name.errors">
-                    <h5 *ngIf="name.errors?.required" class="valid">
-                      *Name is Required Field
-                    </h5>
+  <div class="logreg-box">
+      <div class="reg-left">
+          <img class = 'logo' src="../../assets/images/logo5.jpg">
+          <h2>Create Account</h2>
+          
+          <form [formGroup] = "regForm" (ngSubmit) = "onSubmit()">
+              <input type="text" class="field" placeholder="Full Name" formControlName = "name">
+              <div *ngIf="submitted && name.errors">
+                  <h5 *ngIf="name.errors?.required" class="valid">
+                    *Name is Required Field
+                  </h5>
+              </div>
+              <input type="text" class="field" placeholder="Email" formControlName = "email">
+              <div *ngIf="submitted && email.errors">
+                  <h5 *ngIf="email.errors?.required" class="valid">
+                    *Email is Required Field
+                  </h5>
+              </div>
+              <div *ngIf = "email.errors">
+                  <h5 *ngIf="email.touched && email.errors?.email" class="valid">
+                    *Not a Valid email
+                  </h5>
+              </div>
+              <input type="number" class="field" placeholder="Phone Number" formControlName = "phone">
+              <div *ngIf="submitted && phone.errors">
+                  <h5 *ngIf="phone.errors?.required" class="valid">
+                    *Phone is Required Field
+                  </h5>
+              </div>
+              <div *ngIf = "phone.errors">
+                  <h5 *ngIf="phone.touched && phone.errors?.pattern" class="valid">
+                    *Must be 10 digit
+                  </h5>
+              </div>
+              <input type="password" class="field" placeholder="New Password" formControlName = "psw">
+              <div *ngIf="submitted && psw.errors">
+                  <h5 *ngIf="psw.errors?.required" class="valid">
+                    *Password is Required Field
+                  </h5>
+              </div>
+              <input type="password" class="field" placeholder="Confirm Password" formControlName = "rpsw">
+              <div *ngIf="submitted && rpsw.errors">
+                  <h5 *ngIf=" rpsw.errors?.required" class="valid">
+                    *Confirm password required
+                  </h5>
                 </div>
-                <input type="text" class="field" placeholder="Email" formControlName = "email">
-                <div *ngIf="email.errors">
-                    <h5 *ngIf="email.errors?.required" class="valid">
-                      *Email is Required Field
-                    </h5>
-                    <h5 *ngIf="email.errors?.email" class="valid">
-                      *Not a Valid email
-                    </h5>
-                </div>
-                <input type="number" class="field" placeholder="Phone Number" formControlName = "phone">
-                <div *ngIf="phone.errors">
-                    <h5 *ngIf="phone.errors?.required" class="valid">
-                      *Phone is Required Field
-                    </h5>
-                    <h5 *ngIf="phone.errors?.pattern" class="valid">
-                      *Must be 10 digit
-                    </h5>
-                </div>
-                <input type="password" class="field" placeholder="New Password" formControlName = "psw">
-                <div *ngIf="psw.errors">
-                    <h5 *ngIf="psw.errors?.required" class="valid">
-                      *Password is Required Field
-                    </h5>
-                </div>
-                <input type="password" class="field" placeholder="Confirm Password" formControlName = "rpsw">
-                <div *ngIf="rpsw.errors">
-                    <h5 *ngIf="rpsw.errors?.required" class="valid">
-                      *Field required
-                    </h5>
-                    <h5 *ngIf="regForm.value.psw == regForm.value.psw" class="valid">
-                      *password and confirm password must be same
-                    </h5>
-
-                </div>
-                <button class="btn" (click) = "login()" [disabled] ="!regForm.valid">Register</button>
-                <label class='login'>Existing User ?
-                    <!-- <a href="login.html"> Login</a> -->
-                    <a routerLink="/Login">Login</a>
-                </label>
-            </form>
-        </div>
-        <div class="reg-right">
-            
-        </div>
-    </div>
+                <div>
+                  <h5 *ngIf="psw.value !== rpsw.value" class="valid">
+                    *password and confirm password must be same
+                  </h5>
+              </div>
+              <button class="btn">Register</button>
+              <label class='login'>Existing User ?
+                  <a routerLink="/Login">Login</a>
+              </label>
+          </form>
+      </div>
+      <div class="reg-right">					
+      </div>
+  </div>
 </div>

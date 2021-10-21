@@ -10,8 +10,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { QuoteComponent } from './quote/quote.component';
 import { RegisterComponent } from './register/register.component';
 import { ServiceComponent } from './service/service.component';
-import { StatusComponent } from './status/status.component';
 import { TrackingComponent } from './tracking/tracking.component';
+import { UpdateprofieComponent } from './updateprofie/updateprofie.component';
 import { WhychooseusComponent } from './whychooseus/whychooseus.component';
 
 const routes: Routes = [
@@ -63,13 +63,14 @@ const routes: Routes = [
     path : 'Payment',
     component : PaymentComponent
   },
-  {
-    path : 'Status',
-    component : StatusComponent
-  },
+  
   {
     path : 'Quote',
     component : QuoteComponent
+  },
+  {
+    path : 'Update',
+    component : UpdateprofieComponent
   },
 ];
 

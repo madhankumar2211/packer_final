@@ -2,7 +2,6 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family:  sans-serif;
 }
 
 body {
@@ -92,7 +91,7 @@ body {
     display: flex;
     justify-content: center;
     align-items:center;
-    padding: 90px 100px;
+    padding-top: 80px;
     background: linear-gradient(rgb(112, 159, 219),white);
     background-size:cover;
 
@@ -113,11 +112,13 @@ body {
     background-size:cover;
     width: 100%;
     height: 620px;
+    width: 620px;
 
 }
 
 .login-right{
     padding: 25px 25px;
+    width: 500px;
 
 }
 .reg-left{
@@ -198,6 +199,15 @@ hr{
     font-weight: bold;
 	border-radius: 7px;
 }
+.dbtn{
+    width: 40%;
+    padding: 8px 10px;
+    background-color: #9e9e9e;
+    color: rgb(8, 8, 8);
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 7px;
+}
 
 .btn:hover{
     background-color: #42a788;
@@ -224,25 +234,23 @@ hr{
 
 
 @media screen and (max-width: 1050px){
-    .pay-box{
-        width: 700px;
+    .logreg-box{
+        width: 880px;
+	}
+    .login-right{
+        width: 400px;
+        padding: 25px 50px;
     }
-    .method{
-        width: 700px;
-    }.method i{
-        font-size: 30px;
-    }
-    .icon-text{
-        padding: 10PX;
-        display: block;
-        font-size: 12px;
-        font-weight: bold;
-    }
+	.login-left{
+        margin: 0;
+		height: 550px;
+        width: 480px;
+	}
 	
 }
 @media screen and (max-width: 880px){
     .container{
-        padding-top: 70px;
+        padding-top: 50px;
     }
 	.logreg-box{
         width: 600px;
@@ -250,6 +258,7 @@ hr{
 	}
     .login-right{
 		/* height: 450px; */
+        width: 100%;
         padding: 25px 50px;
     }
 	.login-left{
@@ -274,6 +283,9 @@ hr{
 }
 
 @media screen and (max-width: 700px){
+    .container{
+        padding-top: 100px;
+    }
     .pay-box{
         width: 400px;
     }
@@ -295,7 +307,7 @@ hr{
     .login-left{
         margin: 0;
 		height: 150px;
-        width: 100%;
+        width: 400px;
 	}
 	.btn{
 		width:100%;
@@ -303,7 +315,10 @@ hr{
 	
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 450px){
+    .container{
+        padding-top: 100px;
+    }
     .pay-box{
         width: 350px;
     }

@@ -7,14 +7,14 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class ServiceComponent implements OnInit {
 
-  projectCount =10;
-    projectCountStop =setInterval(()=>{
+  projectCount =0;
+  projectCountStop =setInterval(()=>{
     this.projectCount++;
-    if(this.projectCount == 300){
+    if(this.projectCount == 345){
       clearInterval(this.projectCountStop)
     }
-  },10)
-
+  },5)
+  
   workingHoursCount =0;
   workingHoursCountStop =setInterval(()=>{
     this.workingHoursCount++;

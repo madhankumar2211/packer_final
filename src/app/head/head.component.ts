@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-head',
+  templateUrl: './head.component.html',
+  styleUrls: ['./head.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeadComponent implements OnInit {
+
   loginstatus: boolean;
 
   constructor(public uS : UsersService,
@@ -50,3 +51,5 @@ export class HeaderComponent implements OnInit {
 }
 
 }
+
+

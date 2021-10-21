@@ -5,17 +5,9 @@
     font-family:  sans-serif;
 }
 
-
-
-.bgc{
-    background: white;
-    width: auto ;
-}
-
-
 .Heading .title{
 	position:relative;
-    top:70px;
+    top:30px;
 	text-align:center;
 	font-size:30px;
 	font-weight:500;
@@ -34,6 +26,11 @@
 	transform:translateX(-50%);
 }
 
+.bgc{
+    background: white;
+    width: auto ;
+}
+
 /*heading*/
 .space{
     margin-top: 60px;
@@ -46,7 +43,6 @@
 .booking img{
     width: 500px;
     height:auto;
-   
 }
 .card {
     border-radius: 80px;
@@ -55,21 +51,31 @@
     height: auto;
     margin: 20px;
     display: inline-block;
-    width: 450px;
+    width: 400px;
+    
+}
+.icard {
+    border-radius: 80px;
+    text-align: center;
+    font-size: 16px;
+    height: 100vh;
+    margin: 20px;
+    display: inline-block;
+    width: 400px;
+    /* height: 100%; */
     
 }
 #booking_img {
     text-align: center;
-    position: relative;
-    top :30px;
+    
 }
-#textfield,#name,#number,#mail,#weight,#Vehi_type,#From,#From_city,#to,#to_city,#kilo,#y{
+#textfield,#name,#number,#mail,#weight,#Vehi_type,#From,#from_city,#to,#to_city,#kilo,#y,#kilometer,#date{
     display: block;
     margin-bottom: 3em;
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
-    border: 2px solid black;
+    border: 3px solid black;
     border-radius: 4px;
     box-sizing: border-box;
 }
@@ -92,32 +98,81 @@ p{
     padding:10px;
     margin-top: 40px;
 }
-button{
-    list-style-type: none;
-    display: inline-block; 
-    padding:10px;
-    margin-top: 10px;
-    margin-right: 20px;
-    background-color: lightblue;
-    font-size: 1em;
-    color: black;
+.booking {
+    border: none;
+font-size: 16px;
+padding: 15px 30px;
+margin: 20px auto 0;
+color: #fff;
+background: #4cb1ff;
+border-color: #4cb1ff;
+display: inline-block;
+font-weight: 400;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+
+user-select: none;
+border: 1px solid transparent;
+border-radius: 0.25rem;
 }
-button:hover{
-    background-color: rgba(167, 164, 164, 0.5);
+.booking1 {
+border: none;
+font-size: 16px;
+padding: 15px 55px;
+margin: 20px auto 0;
+color: #fff;
+background: #4cb1ff;
+border-color: #4cb1ff;
+display: inline-block;
+font-weight: 400;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+
+user-select: none;
+border: 1px solid transparent;
+border-radius: 0.25rem;
 }
-.booking a{
+.booking2{
+    border: none;
+font-size: 16px;
+padding: 15px 30px;
+margin: 20px auto 0;
+color: #fff;
+background: #4cb1ff;
+border-color: #4cb1ff;
+display: inline-block;
+font-weight: 400;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+
+user-select: none;
+border: 1px solid transparent;
+border-radius: 0.25rem;
+}
+.booking2{
+    box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+    font-size: 30px;
+}
+
+.booking2 a{
     text-decoration: none;
-    padding: 0.5em 1em;
-    background-color: lightblue;
-    font-size: 2em;
-    color: black;
+    padding: 0px;
+    font-size: 30px;
+    font-weight: 100;
+    color: white;
+    margin-right: 0px;
+    text-align: center;
+   
 }
-.booking a:hover{
-    background-color: rgba(167, 164, 164, 0.5);
-}
+
+
+
 #size_i{
     width: 100%;
-    height: 80vh;
+    height: 100vh;
     border-bottom: 0px;
 }
 #new_one{
@@ -125,8 +180,31 @@ button:hover{
     height: 200px;
 }
 
+.col h5{
+    color: red;
+    padding-top: 20px;
+    padding-left: 10px;
+    /* display: inline-block; */
+  }
+
+  .ip{
+      display: flex;
+  }
+  .sip{
+      width: 100%;
+  }
+  
 
 @media screen and (max-width: 770px){
+    .col h5{
+        padding-top: 0px;
+    }
+    .ip{
+        display: block;
+    }
+    .sip{
+        width: 100%;
+    }
     .banner-text h1{
         font-size: 44px;
     }
@@ -143,22 +221,23 @@ button:hover{
         font-size: 1.5em;
     }
     /*main-sec/secion-1*/
-    .card {
+    .card,.icard {
         border-radius: 80px;
         text-align: center;
         font-size: 16px;
         height: auto;
-        margin-left: 0px;
+        margin-left: 35px;
         margin-right: 0px;
         padding-left: 0px;
         padding-right: 0px;
         display: block;
-        width: 100%;
+        width: 80%;
         
     }
+    
     #size_i{
-        width: 170px;
-        height: 100px;
+        width: 200px;
+        height: 100%;
     }
     .booking li{
         list-style-type: none;
@@ -169,15 +248,20 @@ button:hover{
     }
     .booking a{
         text-decoration: none;
-        padding: 0.5em 1em;
-        background-color: lightblue;
-        font-size: 1em;
+        padding: 0px;
+        font-size: 0.5 em;
         color: black;
         margin-right: 0px;
     }
-    .booking a:hover{
-        background-color: rgba(167, 164, 164, 0.5);
+    .bookingquote a{
+        text-decoration: none;
+        padding: 0px;
+        font-size: 0.5 em;
+        color: black;
+        margin-right: 0px;
+        text-align: center;
     }
+    
   
 }
 
@@ -185,3 +269,6 @@ button:hover{
 input.ng-touched.ng-invalid{
     border:2px solid red;
   }
+
+
+  

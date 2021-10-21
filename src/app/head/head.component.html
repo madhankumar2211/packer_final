@@ -1,0 +1,19 @@
+<nav class="header">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo"><img src="../../assets/images/logo5.jpg" class="main-logo"></label>
+    <ul id ="re">
+
+        <li><a routerLink="/Home">HOME</a></li>
+        <li><a routerLink="/Service">SERVICES</a></li>
+        <li><a routerLink="/Whychooseus">WHYCHOOSEUS</a></li>
+        <li><a routerLink="/Booknow">BOOKNOW</a></li>
+        <li><a (click)="tracking()">TRACKING</a></li>
+        <li><a routerLink="/Contactus">CONTACTUS</a></li>
+        <li><a (click)="profile()" *ngIf="loginstatus">PROFILE</a></li>
+        <li><a routerLink="/Login" *ngIf="!loginstatus">LOGIN</a></li>
+        <li><a (click)="logout()" *ngIf="loginstatus">LOGOUT</a></li>
+    </ul>
+</nav>

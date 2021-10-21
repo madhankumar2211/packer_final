@@ -1,1 +1,167 @@
-<p>quote works!</p>
+<body>
+
+    <section>
+
+        <div id="quote_main">
+            <div class="card">
+                
+                <form (ngSubmit)="onSubmit()">
+                        <div [formGroup]="quoteForm">
+                        <img src="assets\images\quote.png" alt="" id="new_one">
+                        <div class="ip">
+                            <div class="sip">
+                                <input id="name" type="text" placeholder="Enter Your Name" formControlName="name" />
+                            </div>
+                            <div *ngIf="submitted && name.errors" class="col">
+                                <h5 *ngIf="name.errors?.required">
+                                    *Required
+                                </h5>
+                            </div>
+                            <div *ngIf = "name.errors" class="col">
+                                <h5 *ngIf="name.touched && name.errors?.required">
+                                    *Required
+                                </h5>
+                                <h5 *ngIf="name.touched && name.errors?.minlength">
+                                    Mimumun 2 char
+                                </h5>
+                            </div>
+                        </div>
+                    
+                        <div class="ip">
+                            <div class="sip">
+                                <input id="number" type="number" placeholder="Enter Your Mobile Number"
+                                    formControlName="num" />
+                            </div>
+                            <div *ngIf="submitted && num.errors" class="col">
+                                <h5 *ngIf="num.errors?.required">
+                                    *Required
+                                </h5>
+                            </div>
+                            <div *ngIf="num.errors" class="col">
+                                <h5 *ngIf="num.touched && num.errors?.required">
+                                    *Required
+                                </h5>
+                                <h5 *ngIf="num.touched && num.errors?.pattern">
+                                    Enter valid number
+                                </h5>
+                            </div>
+                        </div>
+
+                        <div class="ip">
+                            <div class="sip">
+                                <input id="weight" name="weight" type="number" placeholder="Package Weight(approximate)"
+                                    formControlName="weight" min="1" max="999" />
+                            </div>
+                            <div *ngIf="submitted && weight.errors" class="col">
+                                <h5 *ngIf="weight.errors?.required">
+                                    *Required
+                                </h5>
+                            </div>
+                            <div *ngIf="weight.errors" class="col">
+                                <h5 *ngIf="weight.touched && weight.errors?.required">
+                                    *Required
+                                </h5>
+                                <h5 *ngIf="weight.touched && weight.errors?.pattern">
+                                    Enter valid weight
+                                </h5>
+                            </div>
+                        </div>
+
+
+
+
+                        
+                        <select formControlName="ve_type" id="Vehi_type">
+                            <option [ngValue]="null" selected disabled hidden>Please select Vehicle Type</option>                        
+                            <option *ngFor="let vehi of vechile ; let indexOfelement = index" [value]= vehi.vechile_name >{{vehi.vechile_name}} --( base price: {{vehi.base_price}} -- Additional {{vehi.add_price}} /KM ) </option>
+                            
+                        </select>
+
+                        
+                        <div class="ip">
+                            <div class="sip">
+                                <input id="From" name="from" type="text" placeholder="Moving From"
+                                    formControlName="from" />
+                            </div>
+                            <div *ngIf="submitted && from.errors" class="col">
+                                <h5 *ngIf="from.errors?.required">
+                                    *Required
+                                </h5>
+                            </div>
+                            <div *ngIf="from.errors" class="col">
+                                <h5 *ngIf="from.touched && from.errors?.required">
+                                    *Required
+                                </h5>
+                                <h5 *ngIf="from.touched && from.errors?.minlength">
+                                    Enter valid address
+                                </h5>
+                            </div>
+                        </div>
+
+
+                        
+                        <select formControlName="from_c" id="from_city">
+                            <option [ngValue]="null" selected disabled hidden>Choose your city from</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi">Delhi</option>
+                        </select>
+                        
+
+                        <div class="ip">
+                            <div class="sip">
+                                <input id="to" name="to" type="text" placeholder="Moving To" formControlName="to" />
+                            </div>
+                            <div *ngIf="submitted && to.errors" class="col">
+                                <h5 *ngIf="to.errors?.required">
+                                    *Required
+                                </h5>
+                            </div>
+                            <div *ngIf="to.errors" class="col">
+                                <h5 *ngIf="to.touched && to.errors?.required">
+                                    *Required
+                                </h5>
+                                <h5 *ngIf="to.touched && to.errors?.minlength">
+                                    Enter valid address
+                                </h5>
+                            </div>
+                        </div>
+
+
+                        <select formControlName="to_City" id="to_city">
+                            <option [ngValue]="null" selected disabled hidden>Choose your city To</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi">Delhi</option>
+                        </select>
+                        
+
+                        <div class="ip">
+                            <div class="sip">
+                                <input id="kilometer" type="number" placeholder="Distance (approximate)"
+                                    formControlName="kilometer" />
+                            </div>
+                            <div *ngIf="submitted && kilometer.errors" class="col">
+                                <h5 *ngIf="kilometer.errors?.required">
+                                    *Required
+                                </h5>
+                            </div>                            
+                        </div>
+
+                                  
+                        <input type="date" id="textfield" name="Textfiels"  formControlName="date" />
+
+                            <button type="submit" class="shadow">SUBMIT NOW</button>
+                        
+                        </div>
+                    </form>
+                
+            </div>
+
+        </div>
+    </section>
+</body>

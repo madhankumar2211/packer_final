@@ -2,12 +2,11 @@
     <div class="logreg-box">
         <div class="login-left"></div>
         <div class="login-right">
-            <a href="#"><label class="close">X</label></a>
             <img class = 'logo' src="../../assets/images/logo5.jpg">
             <h2>Forgot Password</h2>
-            <form [formGroup] = "userForm">
-                <input type="text" class="field" placeholder="Email or Phone Number" formControlName = "email">
-                <div *ngIf="email.errors">
+            <form [formGroup] = "userForm" (ngSubmit) = "onSubmit()">
+                <input type="text" class="field" placeholder="E-Mail" formControlName = "email">
+                <div *ngIf="submitted && email.errors">
                     <h5 *ngIf="email.errors?.required" class="valid">
                       *Email is Required Field
                     </h5>
@@ -15,9 +14,25 @@
                       *Not a Valid email
                     </h5>
                 </div>
-                <button class="btn" [disabled]="!email.valid" (click) = "s()">Reset</button><br><br>
+                <div>
+                    <h5 *ngIf = "submitted && uerr" class="valid">
+                        {{error.text}}
+                    </h5>
+                </div>
+
+                <div *ngIf = "valid">
+                    <input type="text" class="field" placeholder="Enter password" formControlName = "psw">
+                    <button class="btn" >Change</button><br>
+                </div>
+                <div *ngIf = "!valid">
+                    <button class="btn" >Reset</button><br>
+                </div>
+                
                 <a routerLink="/Login">Cancel</a>
-            </form>
+                <br>
+                <br>
+                <button (click) = "profile()">Test</button>
+            </form> 
         </div>
     </div>
 </div>

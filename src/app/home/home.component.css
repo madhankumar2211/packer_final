@@ -1,5 +1,5 @@
 .dummy{
-	height:100vh;
+	height:70vh;
 	width:100%;
 	padding-left: 0px;
 
@@ -142,11 +142,13 @@ section{
 	font-weight:400;
 	margin-bottom:5px;
 	margin-left:5px;
+	line-height: 1.6;
 }
 .about .about-content .right .text span{
 	color:#073fb8;
 	margin-left:15px;
-    font-weight: bold;
+    font-weight:700;
+	font-size: 25px;
 }
 .about .about-content .right p{
 	text-align:justify;
@@ -167,7 +169,7 @@ section{
 	border-radius:6px;
 	border:2px solid skyblue;
 	transition:all 0.3s ease;
-	
+	text-decoration: none;
 }
 .about .about-content .right a:hover{
 	color:blue;

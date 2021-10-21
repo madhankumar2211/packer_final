@@ -1,0 +1,49 @@
+<div class="container"> 
+    <div class="logreg-box">
+        <div class="reg-left">
+            <a href="#"><label class="close">X</label></a>
+            <img class = 'logo' src="../../assets/images/logo5.jpg">
+            <h2>Update Profile</h2>
+            
+            <form [formGroup] = "regForm">
+                <div class = 'ilabel'><label for="userName" class ="label"> First Name</label></div>
+                <input type="text" class="field" placeholder="Full Name" formControlName = "name">
+                <div *ngIf="name.errors">
+                    <h5 *ngIf="name.errors?.required" class="valid">
+                      *Name is Required Field
+                    </h5>
+                </div>
+                <div class = 'ilabel'><label for="userName" class ="label"> Email ID</label></div>
+                <input type="text" class="field" placeholder="Email" formControlName = "email">
+                <div *ngIf="email.errors">
+                    <h5 *ngIf="email.errors?.required" class="valid">
+                      *Email is Required Field
+                    </h5>
+                    <h5 *ngIf="email.errors?.email" class="valid">
+                      *Not a Valid email
+                    </h5>
+                </div>
+                <div class = 'ilabel'><label for="userName" class ="label"> Mobile Number</label></div>
+                <input type="number" class="field" placeholder="Phone Number" formControlName = "phone">
+                <div *ngIf="phone.errors">
+                    <h5 *ngIf="phone.errors?.required" class="valid">
+                      *Phone is Required Field
+                    </h5>
+                    <h5 *ngIf="phone.errors?.pattern" class="valid">
+                      *Must be 10 digit
+                    </h5>
+                </div>
+                <div class = 'ilabel'><label for="userName" class ="label"> Password</label></div>
+                <input type="password" class="field" placeholder="New Password" formControlName = "psw">
+                <div *ngIf="psw.errors">
+                    <h5 *ngIf="psw.errors?.required" class="valid">
+                      *Password is Required Field
+                    </h5>
+                </div>
+                
+                <button class="btn" (click) = "update()" >Update</button>
+            </form>
+        </div>
+
+    </div>
+</div>

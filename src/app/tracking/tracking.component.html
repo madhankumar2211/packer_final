@@ -1,42 +1,52 @@
-<div class="Heading">
-    <h1 class="title">TRACK YOUR SHIPMENT</h1>
-</div>
+<div id="hed">
 
+    <br /><br />
+    <h1>TRACK YOUR SHIPMENT</h1>
+</div>
 
 <div id="all_all">
     <div id="img_side">
         <img src="../../assets/images/k6.jfif" /> &nbsp; &nbsp;
     </div>
-    <form [formGroup]="alldata" ngSubmit="getall()">
+    <form [formGroup]="alldata" (ngSubmit)="getall()">
         <div id="box">
+            <br />
+            <br />
+            <br />
+
             <input type="text" name="txt" placeholder="Name" formControlName="nam"><br /><br />
-            <h5>
+            <h5 style="color:royalblue">
                 <div *ngIf="f.nam.touched && f.nam.errors?.required">
                     Name is required.
                 </div>
             </h5>
 
-            <input type="number" name="mob" placeholder="Mobile" formControlName="mob"><br /><br />
-            <h5>
-                <div *ngIf="f.mob.touched && f.mob.errors?.required">Mobile Number is required.</div>
-                <div *ngIf="f.mob.touched && f.mob.errors?.pattern">Please, Enter 10 digit Mobile Number.</div>
+            <!-- <input type="number" name="mob" placeholder="Mobile" formControlName="mob"><br/><br/>
+               <h5><div *ngIf="f.mob.touched && f.mob.errors?.required">Mobile Number is required.</div>  
+                <div *ngIf="f.mob.touched && f.mob.errors?.pattern">Please, Enter 10 digit Mobile Number.</div>  </h5>   -->
+            <br />
+            <input type="text" name="txt" placeholder="Track ID Eg:ABC123" pattern="[A-Z]{3}[0-9]{3}"
+                formControlName="tid"><br /><br />
+            <h5 style="color:royalblue">
+                <div *ngIf="f.tid.touched && f.tid.errors?.required">
+                    OrderId is required.
+                </div>
             </h5>
+            <!-- <label>Booking Date</label><br/>
+               <input type ="date" id="ordat"  formControlName="bd"  >
+                  <div *ngIf="f.bd.touched && f.bd.errors?.required">
+                   date is required.
+                  </div> -->
+            <br />
+            <br />
+            <br />
+            <!-- <button type="submit"  value="Track">Track</button>*/ -->
+            <input type="submit" [disabled]="!alldata.valid" value="Track">
+            <!-- <a href="#par">mmm</a> -->
 
-            <h5> <input type="text" name="txt" placeholder="Track ID Eg:ABC123" pattern="[A-Z]{3}[0-9]{3}"
-                    formControlName="tid"><br /><br /></h5>
 
-            <label>Booking Date</label><br />
-            <input type="date" id="ordat" formControlName="bd">
-            <div *ngIf="f.bd.touched && f.bd.errors?.required">
-                date is required.
-            </div>
-            <br />
-            <br />
-            <br />
-            <a routerLink="/Status"><input type="submit" value="Track"></a>
+
         </div>
-        <!-- <button (click)="getall()" >Track</button> -->
-
     </form>
 
 
@@ -44,3 +54,89 @@
 
 
 </div>
+
+<section>
+
+    <div id="sec1">
+        <h4 style="color: blue">TRACKING ID : {{track}}</h4>
+    </div>
+    <br />
+    <div id="sec2">
+
+        <ul>
+            <li>
+                <h5 style="color: blue">STATUS : {{status}}</h5>
+            </li>
+            <li>
+                <h5 style="color:blue">MOBILE : {{phone}} </h5>
+            </li>
+
+            <li>
+                <h5 style="color: blue">BOOKING DATE:{{bdate}} </h5>
+            </li>
+
+        </ul>
+
+    </div>
+    <br />
+    <br />
+    <div id="sec3">
+        <ul>
+            <li>
+                <img src="../../assets/images/STRAT.jfif" />
+
+                <p style="color:green">START</p>
+            </li>
+
+            <li>
+                <img src="../../assets/images/RUN.png" />
+                <p style="color:orange">GOING</p>
+            </li>
+
+
+            <li>
+                <img src="../../assets/images/HHOME.png" />
+
+                <p style="color:blue">REACH</p>
+            </li>
+
+        </ul>
+    </div>
+    <br />
+    <br />
+    <div id="par">
+        <p>
+            Tracking Department experts will have the total information about all the consignments happening,
+            Tacking department experts will be updating time to time where exactly the consignment is we have specified
+            tracking systems to track the vehicles and
+            clear the blocks and reach the destination in time and safely
+
+        </p>
+    </div>
+    <br /><br />
+    <div id="feed">
+        <div id="imgg">
+            <img src="../../assets/images/feeed.jfif" height="351px" width="300px" />&nbsp; &nbsp;
+        </div>
+
+        <div id="box3">
+            <h4><span>COMMENT PLEASE!!!</span></h4>
+            <input type="text" Placeholder="Email" id="msg" required /><br><br>
+
+            <label>Suggestion</label><textarea id="msg" rows="8" cols="30" required></textarea><br><br>
+
+            <a href="" onclick="alert( ' ThankYou  ')">POP</a><br>
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+</section>

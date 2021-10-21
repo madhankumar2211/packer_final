@@ -21,8 +21,9 @@ import { SliderComponent } from './slider/slider.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { RegisterComponent } from './register/register.component';
 import { PaymentComponent } from './payment/payment.component';
-import { StatusComponent } from './status/status.component';
 import { QuoteComponent } from './quote/quote.component';
+import { UpdateprofieComponent } from './updateprofie/updateprofie.component';
+import { HeadComponent } from './head/head.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +43,9 @@ import { QuoteComponent } from './quote/quote.component';
     ForgotComponent,
     RegisterComponent,
     PaymentComponent,
-    StatusComponent,
-    QuoteComponent
+    QuoteComponent,
+    UpdateprofieComponent,
+    HeadComponent
   ],
   imports: [
     BrowserModule,

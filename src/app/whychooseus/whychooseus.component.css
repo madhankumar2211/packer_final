@@ -1,6 +1,9 @@
 
 
-
+*{
+    padding: 0;
+    margin:0;
+}
 
 /*why choose us*/
 
@@ -46,6 +49,13 @@ p{
 }
 #why-choose-us .row{
     padding-top:10px;
+    
+}
+a{
+    text-decoration: none;
+}
+a:focus a:hover{
+    text-decoration: none;
     
 }
 .wcu-text-box{
@@ -172,13 +182,13 @@ img:hover{
 #head h1{
     
 	text-align:center;
-	top:600px;
+	top:500px;
 
 }
 .contain{
     width: 1300px;
     position: relative;
-    top:100px;
+    top:50px;
     display: flex;
     text-align: center;
     align-items: center;

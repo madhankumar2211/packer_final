@@ -1,58 +1,145 @@
-<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
-<div class="payment-container"> 
-    <div class="pay-box">
-        <h2>Select Payment Method</h2>
-        <div class="method">
-            <i class="fa fa-credit-card" aria-hidden="true"><label class="icon-text"><a href="#">Credit Card</a></label></i>
-            <i class="fa fa-cc-visa" aria-hidden="true"><label class="icon-text"><a href="#">Debit Card</a></label></i>
-            <i class="fa fa-university" aria-hidden="true"><label class="icon-text"><a href="#">Net Bank</a></label></i>
-            <i class="fa fa-inr" aria-hidden="true"><label class="icon-text"><a href="#">UPI</a></label></i>
-        </div>
-    </div>
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+/> 
 
+<div class="payment-container">
     <div class="pay-box">
-        <div>
-            <h2>Card Information</h2>
-            <form action="final.html">
-                <input type="text" class="field" placeholder="Name On The Card" required>
-                <input type="text" class="field" placeholder="Card Number" required>
-                <div class='exp'>
-                    <label>Exp. Month/Year</label>
-                    <select>
-                        <option selected disabled>Month</option>
-                        <option>Jan</option>
-                        <option>Feb</option>
-                        <option>Mar</option>
-                        <option>Apr</option>
-                        <option>May</option>
-                        <option>Jun</option>
-                        <option>Jul</option>
-                        <option>Aug</option>
-                        <option>Sep</option>
-                        <option>Oct</option>
-                        <option>Nov</option>
-                        <option>Dec</option>
-                    </select>
-                    <select>
-                        <option selected disabled>Year</option>
-                        <option>2021</option>
-                        <option>2022</option>
-                        <option>2023</option>
-                        <option>2024</option>
-                        <option>2025</option>
-                        <option>2026</option>
-                        <option>2027</option>
-                        <option>2028</option>
-                        <option>2029</option>
-                        <option>2030</option>
-                        <option>2031</option>
-                        <option>2032</option>
-                    </select>
-                </div>
-                <input type="password" class="field" placeholder="CCV" required>
-                <a routerLink="/Tracking"><button class="btn">Pay Now</button></a>
-            </form>
-            <a class = 'cancel' routerLink ="/Home"> Cancel</a>
-        </div>
+      <h2>Payment Information</h2>
+      <div class="method"></div>
     </div>
-</div>
+  
+    <div class="pay-box">
+      <div>
+        <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()" novalidate>
+          <div class="form-group">
+            <label>Name on Card</label>
+            <input
+              class="form-control"
+              type="text"
+              formControlName="nameOnCard"
+              placeholder="Ex: Mei.G"
+              [ngClass]="{
+                'is-invalid':
+                  (f.nameOnCard.dirty || f.nameOnCard.touched) &&
+                  f.nameOnCard.errors
+              }"
+            />
+            <div
+              *ngIf="
+                !f.nameOnCard.valid &&
+                (f.nameOnCard.dirty || f.nameOnCard.touched)
+              "
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.nameOnCard.errors" class="alert alert-danger">
+                Invalid Cardholder Name.
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>Card Number</label>
+            <input
+              class="form-control"
+              type="number"
+              formControlName="cardNumber"
+              placeholder="Ex: 1234123412341234"
+              [ngClass]="{
+                'is-invalid':
+                  f.cardNumber.errors &&
+                  (f.cardNumber.dirty || f.cardNumber.touched)
+              }"
+            />
+            <div
+              *ngIf="
+                !f.cardNumber.valid &&
+                (f.cardNumber.dirty || f.cardNumber.touched)
+              "
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.cardNumber.errors" class="alert alert-danger">
+                Invalid Card Number.
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-groupexpiry">
+            <label>Date of Expiration</label>
+            <input
+              class="form-control month"
+              type="number"
+              formControlName="expirationMonth"
+              placeholder="Month"
+              [ngClass]="{
+                'is-invalid':
+                  !f.expirationMonth.valid &&
+                  (f.expirationMonth.dirty || f.expirationMonth.touched)
+              }"
+            />
+            <input
+              class="form-control year"
+              type="number"
+              formControlName="expirationYear"
+              placeholder="year"
+              [ngClass]="{
+                'is-invalid':
+                  f.expirationYear.errors &&
+                  (f.expirationYear.dirty || f.expirationYear.touched)
+              }"
+            />
+            <div
+              *ngIf="
+                (!f.expirationMonth.valid &&
+                  (f.expirationMonth.dirty || f.expirationMonth.touched)) ||
+                (!f.expirationYear.valid &&
+                  (f.expirationYear.dirty || f.expirationYear.touched))
+              "
+              class="invalid-feedback"
+            >
+              <div
+                *ngIf="f.expirationMonth.errors || f.expirationYear.errors"
+                class="alert alert-danger"
+              >
+                Invalid Date of Expiration.
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group cvc">
+            <label>CVV/CVC</label>
+            <input
+              class="form-control"
+              type="number"
+              formControlName="cardCVVNumber"
+              placeholder="Ex: 123"
+              [ngClass]="{
+                'is-invalid':
+                  f.cardCVVNumber.errors &&
+                  (f.cardCVVNumber.dirty || f.cardCVVNumber.touched)
+              }"
+            />
+            <div
+              *ngIf="
+                !f.cardCVVNumber.valid &&
+                (f.cardCVVNumber.dirty || f.cardCVVNumber.touched)
+              "
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.cardCVVNumber.errors" class="alert alert-danger">
+                Invalid CVV / CVC Number.
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <button (click)="fun()" type="submit" class="btn btn-primary">
+              Pay Now
+            </button>
+          </div>
+          <h3 class="center-block text-center">{{ displayMessage }}</h3>
+        </form>
+      </div>
+    </div>
+  </div>
+  

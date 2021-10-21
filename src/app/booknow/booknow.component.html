@@ -1,174 +1,194 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/logo.jpg" />
-
-    <title>7PACKERS & MOVERS</title>
-</head>
-
 <body>
     <section class="bgc">
-        <br>
         <div class="Heading">
             <h1 class="title">ADDRESS AND PACKAGE</h1>
         </div>
-        <!-- <div class="space">
-            <h1 id="top">ADDRESS AND PACKAGE</h1>
-        </div> -->
         <div id="booking_img">
-            <div class="card">
+            <div class="icard">
 
                 <img src="../../assets/images/sample.png" id="size_i">
 
+
             </div>
             <div class="card">
-                
-                    <form action="">
 
-                    <div  [formGroup]="bookingForm">
-                        <input id="name"  type="text" placeholder="Enter Your Name" [(ngModel)]="cusname" formControlName="name"/>
-                        <div>
-                            <h6 style="color:red; font-size:20px;"
-                            *ngIf=" name.touched && name.errors?.required" >
-                              First name is required
-                            </h6>
-                            <h6 style="color:red; font-size:20px;"
-                            *ngIf=" name.touched && name.errors?.minlength" >
-                            Minimum 2 characters Required
-                            </h6>
-                            <h6 style="color:red; font-size:20px;"
-                            *ngIf=" name.touched && name.errors?.maxlength" >
-                            Maximum 30 characters Required
-                            </h6>                            
+                <form (ngSubmit)="onSubmit()">
+
+                    <div [formGroup]="bookingForm">
+                        <div class="ip">
+                            <div class="sip">
+                                <input id="name" type="text" placeholder="Enter Your Name" formControlName="Cus_name" />
+                            </div>
+                            <div *ngIf="submitted && name.errors" class="col">
+                                <h5 *ngIf="name.errors?.required">
+                                    *Required
+                                </h5>
+                            </div>
+                            <div *ngIf="name.errors" class="col">
+                                <h5 *ngIf="name.touched && name.errors?.required">
+                                    *Required
+                                </h5>
+                                <h5 *ngIf="name.touched && name.errors?.minlength">
+                                    Mimumun 2 char
+                                </h5>
+                            </div>
                         </div>
 
-                        <input id="number" name="number" type="number" placeholder="Enter Your Mobile Number" [(ngModel)]="cusnum" formControlName="num" />
-                        <div>
-                            <h6 style="color:red; font-size:20px;"
-                            *ngIf=" num.touched && num.errors?.required" >
-                              First name is required
-                            </h6>
-                            <h6 style="color:red; font-size:20px;"
-                            *ngIf=" num.touched && num.errors?.pattern" >
-                            Enter only 10 numbers
-                            </h6>                           
-                        </div>                        
-
-                        <input id="mail" name="mail" type="text" placeholder="Enter Your E-Mail ID" [(ngModel)]="cusmail" formControlName="mail" />
-                        <div>
-                            <h6 style="color:red; font-size:20px;"
-                            *ngIf=" mail.touched && mail.errors?.required" >
-                              Email is required
-                            </h6>
-                            <h6 style="color:red; font-size:20px;"
-                            *ngIf=" mail.touched && mail.errors?.pattern" >
-                            Enter a vaild mail Id
-                            </h6>                            
+                        <div class="ip">
+                            <div class="sip">
+                                <input id="number" type="number" placeholder="Enter Your Mobile Number"
+                                    formControlName="Cus_number" />
+                            </div>
+                            <div *ngIf="submitted && num.errors" class="col">
+                                <h5 *ngIf="num.errors?.required">
+                                    *Required
+                                </h5>
+                            </div>
+                            <div *ngIf="num.errors" class="col">
+                                <h5 *ngIf="num.touched && num.errors?.required">
+                                    *Required
+                                </h5>
+                                <h5 *ngIf="num.touched && num.errors?.pattern">
+                                    Enter 10 numbers
+                                </h5>
+                            </div>
                         </div>
 
-                        <input id="weight" name="weight" type="number" placeholder="Package Weight(approximate)" [(ngModel)]="cuspackagewei" formControlName="weight" min="1" max="999" />
-                        <div>
-                            <h6 style="color:red; font-size:20px;"
-                            *ngIf=" weight.touched && weight.errors?.required" >
-                              Enter the valid weight
-                            </h6>
-                            <h6 style="color:red; font-size:20px;"
-                            *ngIf=" weight.touched && weight.errors?.pattern" >
-                            Enter weight between 1-999
-                            </h6> 
-                                                      
+                        <div class="ip">
+                            <div class="sip">
+                                <input id="weight" name="weight" type="number" placeholder="Package Weight(approximate)"
+                                    formControlName="Package_weight" min="1" max="999" />
+                            </div>
+                            <div *ngIf="submitted && weight.errors" class="col">
+                                <h5 *ngIf="weight.errors?.required">
+                                    *Required
+                                </h5>
+                            </div>
+                            <div *ngIf="weight.errors" class="col">
+                                <h5 *ngIf="weight.touched && weight.errors?.required">
+                                    *Required
+                                </h5>
+                                <h5 *ngIf="weight.touched && weight.errors?.pattern">
+                                    Enter valid weight
+                                </h5>
+                            </div>
                         </div>
 
-                        
-                        <select name="Vehi_type" id="Vehi_type" placeholder="Please select the vehicle" [(ngModel)]="v_type" required>
-                            <option value="" disabled selected >Please select Vehicle Type</option>
-                            <option value="Mini Truck">Mini Truck</option>
-                            <option value="Container">Container</option>
-                            <option value="Tata Ace">Tata Ace</option>
-                            <option value="Mahendra Bolera">Mahendra Bolera</option>
-                            <option value="20 Feet Open All Side">20 Feet Open All Side</option>
+
+                        <select formControlName="Product_shipping" id="Vehi_type">
+                            <option [ngValue]="null" selected disabled hidden>Please select Product category</option>
+                            <option *ngFor="let p of Products " [value]=p>{{p}} </option>
+
+                        </select>
+
+                        <select formControlName="Vehicle_type" id="Vehi_type">
+                            <option [ngValue]="null" selected disabled hidden>Please select Vehicle Type</option>
+                            <option *ngFor="let vehi of vechile " [value]=vehi.vechile_name>{{vehi.vechile_name}} --(
+                                base price: {{vehi.base_price}} -- Additional {{vehi.add_price}} /KM ) </option>
+
                         </select>
 
 
-                        <input id="From" name="from" type="text" placeholder="Moving From" [(ngModel)]="fromadd" formControlName="from" />
-                        <div>
-                            <h6 style="color:red; font-size:20px;"
-                            *ngIf=" from.touched && from.errors?.required" >
-                              Enter valid address
-                            </h6>
-                            <h6 style="color:red; font-size:20px;"
-                            *ngIf=" from.touched && from.errors?.minlength" >
-                            Enter valid address
-                            </h6>                           
+                        <input type="radio" formControlName="coption" value="Within" (change)="within($event)">With in
+                        City 
+                        <input type="radio" formControlName="coption" value="outside" (change)="within($event)">Outside
+                        the city
+
+
+                        <div class="ip">
+                            <div class="sip">
+                                <input id="From" name="from" type="text" placeholder="Moving From"
+                                    formControlName="From_door_and_address" />
+                            </div>
+                            <div *ngIf="submitted && from.errors" class="col">
+                                <h5 *ngIf="from.errors?.required">
+                                    *Required
+                                </h5>
+                            </div>
+                            <div *ngIf="from.errors" class="col">
+                                <h5 *ngIf="from.touched && from.errors?.required">
+                                    *Required
+                                </h5>
+                                <h5 *ngIf="from.touched && from.errors?.pattern">
+                                    Enter valid address
+                                </h5>
+                            </div>
                         </div>
 
 
 
-                        <select name="Select City" id="textfield"  >
-                            <option value="" disabled selected>Please select the city from</option>
-                            <option value="Chennai">Chennai</option>
-                            <option value="Hyderabad">Hyderabad</option>
-                            <option value="Bangalore">Bangalore</option>
-                            <option value="Mumbai">Mumbai</option>
-                            <option value="Delhi">Delhi</option>
+                        <select formControlName="From_state" id="from_city" (change)="Fcities()">
+                            <option [ngValue]="null" selected disabled hidden>Choose your State from</option>
+                            <option *ngFor="let x of countries" value="{{x.isoCode}}">{{x.name}}</option>
                         </select>
 
-
-
-                        <input id="to" name="to" type="text" placeholder="Moving To" [(ngModel)]="toadd" formControlName="to" />
-                        <div>
-                            <h6 style="color:red; font-size:20px;"
-                            *ngIf=" to.touched && to.errors?.required" >
-                              Enter valid address
-                            </h6>
-                            <h6 style="color:red; font-size:20px;"
-                            *ngIf=" to.touched && to.errors?.minlength" >
-                            Enter valid address
-                            </h6>                            
-                        </div>
-
-
-                        
-                        <select name="Select City" id="textfield" required formControlName="to_c">
-                            <option value="" disabled selected>Please select the city to</option>
-                            <option value="Chennai">Chennai</option>
-                            <option value="Hyderabad">Hyderabad</option>
-                            <option value="Bangalore">Bangalore</option>
-                            <option value="Mumbai">Mumbai</option>
-                            <option value="Delhi">Delhi</option>
+                        <select  id="from_city" (change)="Flatlon($event)">
+                            <option [ngValue]="null" selected disabled hidden>Choose your city From</option>
+                            <option *ngFor="let x of Fcity" value="{{x.latitude}},{{x.longitude}},{{x.name}}">{{x.name}}</option>
                         </select>
-
                         
-                        <input type="date" id="textfield" name="Textfiels" min="2021-06-09" max="2022-12-31"
-                            [(ngModel)]="datee" formControlName="date" />
-                        <!-- <label for="" id="y"> Do You Need Insurance ?
-                    
-                              <input type="radio" id="insurance" name="fav_language" value="1" [(ngModel)]="inc">Yes
-                            <input type="radio" id="insurance" name="fav_language" value="0" [(ngModel)]="inc">No
-                        </label> -->
-                        <a routerLink="/Payment" ><button>BOOK NOW</button></a>
-                        <button> <a href=""
-                                onclick="alert('                                         Hello\n                                   How are you?\nWe recieved your request, we will contact you by end of the day \n                            THANKS FOR CHOOSING US')">
-                            </a>Consultwith US</button>
-                        </div>
-                    </form>
-                
+                                             
+
+
+
+        <div class="ip">
+            <div class="sip">
+                <input id="to" name="to" type="text" placeholder="Moving To" formControlName="To_door_and_address" />
             </div>
-            <div>
-                <div class="booking">
-                    <ul>
-                        <li><a routerLink="/Quote">Quote</a></li>
-                    </ul>
-                </div>
-                <br>
+            <div *ngIf="submitted && to.errors" class="col">
+                <h5 *ngIf="to.errors?.required">
+                    *Required
+                </h5>
+            </div>
+            <div *ngIf="to.errors" class="col">
+                <h5 *ngIf="to.touched && to.errors?.required">
+                    *Required
+                </h5>
+                <h5 *ngIf="to.touched && to.errors?.pattern">
+                    Enter valid address
+                </h5>
             </div>
         </div>
-    </section>
-   
-</body>
 
-</html>
+                        <div *ngIf="City_to">
+                            
+                            <select formControlName="To_state" id="to_city" (change)="Tcities()">
+                                <option [ngValue]="null" selected disabled hidden>Choose your State To</option>
+                                <option *ngFor="let x of countries" value="{{x.isoCode}}">{{x.name}}</option>
+                            </select>
+
+                            <select formControlName="To_city" id="to_city" (change)="Tlatlon($event)">
+                                <option [ngValue]="null" selected disabled hidden>Choose your city To</option>
+                                <option *ngFor="let x of Tcity" value="{{x.latitude}},{{x.longitude}},{{x.name}}">{{x.name}}
+                                </option>
+                            </select>
+                        </div>
+
+
+
+
+
+                        <input type="Date" id="date" name="enter you date" placeholder="entr ur date"
+                            formControlName="Date" />
+
+                        <button type="submit"  class="booking1" >BOOK NOW</button>
+
+                    </div>
+                </form>
+                <button [disabled]="!bookingForm.valid" (click)="consult()" class="booking">CONSULTWITH US</button>
+
+                
+
+            </div>
+            <div>
+                <div class="booking2">
+                    <a routerLink="/quote">Quote</a>
+                </div>
+             </div>
+            
+        </div>
+        
+    </section>
+
+
+</body>

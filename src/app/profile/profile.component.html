@@ -1,14 +1,18 @@
 <section class="body">
-    
     <div class="Heading">
         <h1 class="title">USER PROFILE</h1>
     </div>
     <section class='profile'>
+        <h1 class='profilefont'></h1>
+    </section>
+    <section class='profile'>
         <div class='profile_head'>
             <div class="profile_name">
-                <h1>Hello Sivakarthikeyan &nbsp;<i class="material-icons">edit</i></h1>
+
+                <h1>Hello {{specifiedUser.name}} &nbsp;</h1>
             </div>
-            <div class="profile_pic"></div>
+            <div class="profile_pic"><button (click)="editprofile()" class="btn">edit profile</button>
+            </div>
         </div>
     </section>
     <section class="profile">
@@ -16,15 +20,15 @@
             <div class="usrdetail_head">User Details</div>
             <div class="usrdetail">
                 <div>Phone</div>
-                <div>8870384539&nbsp;<i class="material-icons">edit</i></div>
+                <div>{{specifiedUser.phone}}&nbsp;</div>
             </div>
             <div class="usrdetail">
                 <div>Email</div>
-                <div>sivakarthikeyan@gmail.com&nbsp;<i class="material-icons">edit</i></div>
+                <div>{{specifiedUser.email}}&nbsp;</div>
             </div>
             <div class="usrdetail">
                 <div>Password</div>
-                <div>***********&nbsp;<i class="material-icons">edit</i></div>
+                <div>{{psw}}&nbsp;</div>
             </div>
         </div>
     </section>
@@ -34,96 +38,83 @@
             <div class="order_head">Current Orders</div>
 
             <div class="current_order">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Television</h5>
-                        <p class="card-text">Active</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">From - Chennai</li>
-                        <li class="list-group-item">To - Trichy</li>
-                        <li class="list-group-item">Date - 20-10-2020</li>
-                        <li class="list-group-item">Amount - Rs. 1200</li>
+                <div *ngIf = "count" class="text">
+                    No pending orders
+                </div>
+                
+                <div *ngFor="let or of allorder">
+                    <div *ngIf="or.recordStatus == 1">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Television</h5>
+                                <p class="card-text">Active</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">From -{{or.From_City}}</li>
+                                <li class="list-group-item">To - {{or.To_city}}</li>
+                                <li class="list-group-item">Date - {{or.Booking_date}}</li>
+                                <li class="list-group-item">Amount - Rs. 1200</li>
 
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Cancel</a>
+                            </ul>
+                            <div class="card-body">
+                                <button (click) = "cancel(or)" class="card-link">Cancel</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Television</h5>
-                        <p class="card-text">Active</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">From - Chennai</li>
-                        <li class="list-group-item">To - Trichy</li>
-                        <li class="list-group-item">Date - 20-10-2020</li>
-                        <li class="list-group-item">Amount - Rs. 1200</li>
-
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Cancel</a>
-                    </div>
-                </div>
-
 
             </div>
 
-            <div class="order_head">Past Orders</div>
+            <div class="order_head">Completed  Orders</div>
 
             <div class="history">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Television</h5>
-                        <p class="card-text">Completed</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">From - Chennai</li>
-                        <li class="list-group-item">To - Trichy</li>
-                        <li class="list-group-item">Date - 20-10-2020</li>
-                        <li class="list-group-item">Amount - Rs. 1200</li>
-                    </ul>
+                <div *ngIf = "completed" class ="text">
+                    No Complted orders
                 </div>
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Television</h5>
-                        <p class="card-text">Completed</p>
+                <div *ngFor="let or of allorder">
+                    <div *ngIf="or.recordStatus == 0">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Television</h5>
+                                <p class="card-text">Completed</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">From - {{or.From_City}}</li>
+                                <li class="list-group-item">To - {{or.To_city}}</li>
+                                <li class="list-group-item">Date - {{or.Booking_date}}</li>
+                                <li class="list-group-item">Amount - Rs. 1200</li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">From - Chennai</li>
-                        <li class="list-group-item">To - Trichy</li>
-                        <li class="list-group-item">Date - 20-10-2020</li>
-                        <li class="list-group-item">Amount - Rs. 1200</li>
-                    </ul>
                 </div>
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Television</h5>
-                        <p class="card-text">Completed</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">From - Chennai</li>
-                        <li class="list-group-item">To - Trichy</li>
-                        <li class="list-group-item">Date - 20-10-2020</li>
-                        <li class="list-group-item">Amount - Rs. 1200</li>
-                    </ul>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Television</h5>
-                        <p class="card-text">Completed</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">From - Chennai</li>
-                        <li class="list-group-item">To - Trichy</li>
-                        <li class="list-group-item">Date - 20-10-2020</li>
-                        <li class="list-group-item">Amount - Rs. 1200</li>
-                    </ul>
-                </div>
+
             </div>
+            <div class="order_head">Cancelled Orders</div>
+
+            <div class="history">
+                <div *ngIf = "cancelled" class = "text">
+                    No Cancelled orders
+                </div>
+                <div *ngFor="let or of allorder">
+                    <div *ngIf="or.recordStatus == -1">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Television</h5>
+                                <p class="card-text">Cancelled</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">From - {{or.From_City}}</li>
+                                <li class="list-group-item">To - {{or.To_city}}</li>
+                                <li class="list-group-item">Date - {{or.Booking_date}}</li>
+                                <li class="list-group-item">Amount - Rs. 1200</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </section>
 </section>
-{{specifiedUser | json}}
-{{specifiedUser.userName}}
+

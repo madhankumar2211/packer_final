@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-forgot',
@@ -8,13 +10,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ForgotComponent implements OnInit {
 
-  userForm : any;
+  userForm : FormGroup;
+  submitted : boolean = false;
+  error : any;
+  uerr : boolean = false;
+  valid : boolean = false;
 
-  constructor(public fb : FormBuilder) { }
+  constructor(public fb : FormBuilder,public uS : UsersService,public router : Router) { }
 
   ngOnInit(){
       this.userForm = this.fb.group({
-        email : ['',[Validators.required,Validators.email]]
+        email : ['',[Validators.required,Validators.email]],
+        psw : ['']
       });      
   }
 
@@ -22,9 +29,34 @@ export class ForgotComponent implements OnInit {
     return this.userForm.controls['email'];
   }
   
-  s(){
-    console.log("hello");
-    
+  onSubmit(){
+    this.submitted = true; 
+    this.uerr = false
+    if(this.userForm.status === 'VALID') 
+    {
+      if(this.valid)
+      {
+        this.uS.updatepassword(this.userForm.value).subscribe((data) => {         
+          alert("password updated")
+          this.router.navigateByUrl('/login')
+        })
+      }
+      else{
+        this.uS.forgot(this.userForm.value).subscribe((resp :any) => {
+          console.log(resp);
+          this.valid = true
+        },(err) => {
+          this.error = err.error;
+          this.uerr = true
+        })
+      }
+    }
   }
 
+  profile(){
+    
+    this.uS.profile().subscribe((data) =>{
+      this.router.navigateByUrl(data["link"]);
+    })
+  }
 }
