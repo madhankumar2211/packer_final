@@ -5,6 +5,10 @@
 	font-family: 'Noto Sans JP', sans-serif;
 }
 
+.wrapper{
+    padding-top: 70px;
+}
+
 .Heading .title{
 	position:relative;
     top:30px;

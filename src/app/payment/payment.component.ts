@@ -16,9 +16,19 @@ export class PaymentComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, public us : UsersService ,public router : Router) {}
 
   record: any;
+  amt : any;
 
   ngOnInit() {
-    this.buildForm();
+    if(!this.us.loggedIn())
+    {
+      this.router.navigateByUrl('/Login')
+    }
+    else{
+      console.log(this.us.order);
+      
+      this.amt = this.us.order.Price
+      this.buildForm();
+    }
   }
 
   buildForm() {
@@ -103,10 +113,9 @@ export class PaymentComponent implements OnInit {
         console.log("hii");
         
         this.record = data;
+        alert(`Order Id : ${data.insertedId}`)
       });
-    this.us.tracking().subscribe((data) =>{
-      this.router.navigateByUrl(data["link"]);
-    })
+      this.router.navigateByUrl('/Tracking');
   }
 }
 

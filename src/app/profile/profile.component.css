@@ -2,9 +2,14 @@
     margin-top: 0;
     padding-top: 0;
 }
+
+.body{
+    padding-left: 50px;
+    padding-right: 50px;
+}
 .Heading .title{
 	position:relative;
-    top:100px;
+    top:50px;
 	text-align:center;
 	font-size:30px;
 	font-weight:500;
@@ -121,6 +126,7 @@
     box-shadow: 5px 10px rgb(7, 145, 145);
     padding: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 .order_head{
@@ -142,24 +148,40 @@
     box-shadow: 5px 10px rgb(7, 145, 145);
     padding: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 
 }
 
 .history .card-text{
     color: red;
+    font-size: 1rem;
 }
 .current_order .card-text{
     color: rgb(87, 214, 87);
+    padding: 5px;
+    font-size: 1rem;
+
 }
 .card{
     margin: 5px;
     background-color: rgb(10, 153, 146);
+    padding-left: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-shadow: 5px 10px rgba(123, 233, 123, 0.486)
+
 }
 
 .card a{
     color: white;
     text-decoration: none;
+}
+.card-title{
+    /* padding-left: 70px; */
+    font-size: 1.5rem;
+    color:white;
+    
 }
 
 @media only screen and (max-width: 1200px) {

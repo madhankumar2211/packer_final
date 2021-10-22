@@ -1,23 +1,22 @@
 <body>
-
     <section>
-
         <div id="quote_main">
             <div class="card">
-                
+
                 <form (ngSubmit)="onSubmit()">
-                        <div [formGroup]="quoteForm">
-                        <img src="assets\images\quote.png" alt="" id="new_one">
+
+                    <div [formGroup]="quoteForm">
+                        <img src="assets\images\quote1.png" alt="" id="new_one">
                         <div class="ip">
                             <div class="sip">
-                                <input id="name" type="text" placeholder="Enter Your Name" formControlName="name" />
+                                <input id="name" type="text" placeholder="Enter Your Name" formControlName="Cus_name" />
                             </div>
                             <div *ngIf="submitted && name.errors" class="col">
                                 <h5 *ngIf="name.errors?.required">
                                     *Required
                                 </h5>
                             </div>
-                            <div *ngIf = "name.errors" class="col">
+                            <div *ngIf="name.errors" class="col">
                                 <h5 *ngIf="name.touched && name.errors?.required">
                                     *Required
                                 </h5>
@@ -26,11 +25,11 @@
                                 </h5>
                             </div>
                         </div>
-                    
+
                         <div class="ip">
                             <div class="sip">
                                 <input id="number" type="number" placeholder="Enter Your Mobile Number"
-                                    formControlName="num" />
+                                    formControlName="Cus_number" />
                             </div>
                             <div *ngIf="submitted && num.errors" class="col">
                                 <h5 *ngIf="num.errors?.required">
@@ -42,7 +41,7 @@
                                     *Required
                                 </h5>
                                 <h5 *ngIf="num.touched && num.errors?.pattern">
-                                    Enter valid number
+                                    Enter 10 numbers
                                 </h5>
                             </div>
                         </div>
@@ -50,7 +49,7 @@
                         <div class="ip">
                             <div class="sip">
                                 <input id="weight" name="weight" type="number" placeholder="Package Weight(approximate)"
-                                    formControlName="weight" min="1" max="999" />
+                                    formControlName="Package_weight" min="1" max="999" />
                             </div>
                             <div *ngIf="submitted && weight.errors" class="col">
                                 <h5 *ngIf="weight.errors?.required">
@@ -68,20 +67,30 @@
                         </div>
 
 
+                        <select formControlName="Product_shipping" id="Vehi_type">
+                            <option [ngValue]="null" selected disabled hidden>Please select Product category</option>
+                            <option *ngFor="let p of Products " [value]=p>{{p}} </option>
 
-
-                        
-                        <select formControlName="ve_type" id="Vehi_type">
-                            <option [ngValue]="null" selected disabled hidden>Please select Vehicle Type</option>                        
-                            <option *ngFor="let vehi of vechile ; let indexOfelement = index" [value]= vehi.vechile_name >{{vehi.vechile_name}} --( base price: {{vehi.base_price}} -- Additional {{vehi.add_price}} /KM ) </option>
-                            
                         </select>
 
-                        
+                        <select formControlName="Vehicle_type" id="Vehi_type">
+                            <option [ngValue]="null" selected disabled hidden>Please select Vehicle Type</option>
+                            <option *ngFor="let vehi of vechile " [value]=vehi.vechile_name>{{vehi.vechile_name}} --(
+                                base price: {{vehi.base_price}} -- Additional {{vehi.add_price}} /KM ) </option>
+
+                        </select>
+
+
+                        <input type="radio" formControlName="coption" value="Within" (change)="within($event)">With in
+                        City
+                        <input type="radio" formControlName="coption" value="outside" (change)="within($event)">Outside
+                        the city
+
+
                         <div class="ip">
                             <div class="sip">
                                 <input id="From" name="from" type="text" placeholder="Moving From"
-                                    formControlName="from" />
+                                    formControlName="From_door_and_address" />
                             </div>
                             <div *ngIf="submitted && from.errors" class="col">
                                 <h5 *ngIf="from.errors?.required">
@@ -92,27 +101,33 @@
                                 <h5 *ngIf="from.touched && from.errors?.required">
                                     *Required
                                 </h5>
-                                <h5 *ngIf="from.touched && from.errors?.minlength">
+                                <h5 *ngIf="from.touched && from.errors?.pattern">
                                     Enter valid address
                                 </h5>
                             </div>
                         </div>
 
 
-                        
-                        <select formControlName="from_c" id="from_city">
-                            <option [ngValue]="null" selected disabled hidden>Choose your city from</option>
-                            <option value="Chennai">Chennai</option>
-                            <option value="Hyderabad">Hyderabad</option>
-                            <option value="Bangalore">Bangalore</option>
-                            <option value="Mumbai">Mumbai</option>
-                            <option value="Delhi">Delhi</option>
+
+                        <select formControlName="From_state" id="from_city" (change)="Fcities()">
+                            <option [ngValue]="null" selected disabled hidden>Choose your State from</option>
+                            <option *ngFor="let x of countries" value="{{x.isoCode}}">{{x.name}}</option>
                         </select>
-                        
+
+                        <select id="from_city" (change)="Flatlon($event)">
+                            <option [ngValue]="null" selected disabled hidden>Choose your city From</option>
+                            <option *ngFor="let x of Fcity" value="{{x.latitude}},{{x.longitude}},{{x.name}}">{{x.name}}
+                            </option>
+                        </select>
+
+
+
+
 
                         <div class="ip">
                             <div class="sip">
-                                <input id="to" name="to" type="text" placeholder="Moving To" formControlName="to" />
+                                <input id="to" name="to" type="text" placeholder="Moving To"
+                                    formControlName="To_door_and_address" />
                             </div>
                             <div *ngIf="submitted && to.errors" class="col">
                                 <h5 *ngIf="to.errors?.required">
@@ -123,45 +138,47 @@
                                 <h5 *ngIf="to.touched && to.errors?.required">
                                     *Required
                                 </h5>
-                                <h5 *ngIf="to.touched && to.errors?.minlength">
+                                <h5 *ngIf="to.touched && to.errors?.pattern">
                                     Enter valid address
                                 </h5>
                             </div>
                         </div>
 
+                        <div *ngIf="City_to">
 
-                        <select formControlName="to_City" id="to_city">
-                            <option [ngValue]="null" selected disabled hidden>Choose your city To</option>
-                            <option value="Chennai">Chennai</option>
-                            <option value="Hyderabad">Hyderabad</option>
-                            <option value="Bangalore">Bangalore</option>
-                            <option value="Mumbai">Mumbai</option>
-                            <option value="Delhi">Delhi</option>
-                        </select>
-                        
+                            <select formControlName="To_state" id="to_city" (change)="Tcities()">
+                                <option [ngValue]="null" selected disabled hidden>Choose your State To</option>
+                                <option *ngFor="let x of countries" value="{{x.isoCode}}">{{x.name}}</option>
+                            </select>
 
-                        <div class="ip">
-                            <div class="sip">
-                                <input id="kilometer" type="number" placeholder="Distance (approximate)"
-                                    formControlName="kilometer" />
-                            </div>
-                            <div *ngIf="submitted && kilometer.errors" class="col">
-                                <h5 *ngIf="kilometer.errors?.required">
-                                    *Required
-                                </h5>
-                            </div>                            
+                            <select formControlName="To_city" id="to_city" (change)="Tlatlon($event)">
+                                <option [ngValue]="null" selected disabled hidden>Choose your city To</option>
+                                <option *ngFor="let x of Tcity" value="{{x.latitude}},{{x.longitude}},{{x.name}}">
+                                    {{x.name}}
+                                </option>
+                            </select>
                         </div>
 
-                                  
-                        <input type="date" id="textfield" name="Textfiels"  formControlName="date" />
 
-                            <button type="submit" class="shadow">SUBMIT NOW</button>
-                        
-                        </div>
-                    </form>
-                
+
+
+
+                        <input type="Date" id="date" name="enter you date" placeholder="entr ur date"
+                            formControlName="Date" />
+
+                        <button type="submit" class="shadow">SUBMIT NOW</button>
+
+                    </div>
+                </form>
+
+
+
             </div>
 
         </div>
+
     </section>
+
+
 </body>
+

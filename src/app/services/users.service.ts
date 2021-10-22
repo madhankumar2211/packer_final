@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -8,48 +9,53 @@ import { BehaviorSubject } from 'rxjs';
 export class UsersService {
 
   order : any;
-
-  constructor(public http: HttpClient) { }
-
+  private URL = 'http://localhost:7080';
   isloggedin = new BehaviorSubject(false)
 
+
+  constructor(public http: HttpClient,public router : Router) { }
+
+
   forgot(x) {
-    return this.http.post('http://localhost:7080/forgot', x);
+    return this.http.post(this.URL + '/forgot', x);
   }
   updatepassword(x) {
-    return this.http.put('http://localhost:7080/updatepassword', x);
+    return this.http.put(this.URL + '/updatepassword', x);
   }
   login(x) {
     this.isloggedin.next(true)
-    return this.http.post<any>("http://localhost:7080/login", x, {
-      withCredentials: true
-    })
+    return this.http.post<any>(this.URL + '/login', x);
   }
   register(x) {
-    return this.http.post<any>('http://localhost:7080/register', x);
+    return this.http.post<any>(this.URL + '/register', x);
   }
   logout() {
     this.isloggedin.next(false)
-    return this.http.post('http://localhost:7080/logout', {}, {
-      withCredentials: true
-    });
+    localStorage.removeItem('token');
+    this.router.navigate(['/Login']);
+  }
+  autologin(){
+    this.isloggedin.next(true)
   }
 
-  profile() {
-    return this.http.get('http://localhost:7080/Profile', {
-      withCredentials: true
-    });
+  loggedIn() {
+    return localStorage.getItem('token');
   }
-  tracking() {
-    return this.http.get('http://localhost:7080/Tracking', {
-      withCredentials: true
-    });
+  
+  getToken() {
+    console.log(localStorage.getItem('token'));
+    
+    return localStorage.getItem('token');
   }
-  book() {
-    return this.http.get('http://localhost:7080/Payment', {
-      withCredentials: true
-    });
-  }
+
+  //-------------------------------------------------------------------
+
+  // profile() {
+  //   return this.http.get(this.URL + '/Profile');
+  // }
+  // book() {
+  //   return this.http.get(this.URL + '/Payment')
+  // }
 
 
 
@@ -65,17 +71,17 @@ export class UsersService {
   //order table
 
   add(x:any) {
-    return this.http.post<any>('http://localhost:7080/booking', x);
+    return this.http.post<any>(this.URL + '/booking', x);
   }
   addquote(y:any) {
-    return this.http.post<any>('http://localhost:7080/insertquote', y);
+    return this.http.post<any>(this.URL + '/insertquote', y);
   }
   vehicle(){
-    return this.http.get<any>('http://localhost:7080/vehicleviewnew');
+    return this.http.get<any>(this.URL + '/vehicleviewnew');
   }
 
   //payment
   addpayment(x:any) {
-    return this.http.post<any>('http://localhost:7080/addpaymentinfo', x);
+    return this.http.post<any>(this.URL + '/addpaymentinfo', x);
   }
 }

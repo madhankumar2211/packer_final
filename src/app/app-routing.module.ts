@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 import { BooknowComponent } from './booknow/booknow.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { ForgotComponent } from './forgot/forgot.component';
@@ -45,7 +46,8 @@ const routes: Routes = [
   },
   {
     path : 'Profile',
-    component : ProfileComponent
+    component : ProfileComponent,
+    canActivate:[AuthGuard]
   },
   {
     path : 'Login',
@@ -61,7 +63,8 @@ const routes: Routes = [
   },
   {
     path : 'Payment',
-    component : PaymentComponent
+    component : PaymentComponent,
+    canActivate:[AuthGuard]
   },
   
   {

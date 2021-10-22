@@ -33,7 +33,9 @@
 
 } */
 
-
+a{
+  cursor: pointer;
+}
 
 .logo img{
 
@@ -83,6 +85,7 @@
   #check{
     display: none;
   }
+  
   @media (max-width: 952px){
     label.logo{
       font-size: 30px;
@@ -125,10 +128,6 @@
     #check:checked ~ ul{
       left: 0;
     }
-    /* a:checked ~ ul{
-      right:0;
-    } */
-    
   }
   section{
     /* background: url(bg1.jpg) no-repeat; */

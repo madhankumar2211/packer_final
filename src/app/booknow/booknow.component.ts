@@ -33,6 +33,9 @@ export class BooknowComponent implements OnInit {
   currentD = new Date();
 
   ngOnInit(): void {
+    if(!this.rs.loggedIn()){
+      alert('You are a not Logged In user.....Still you can get Quote from us.\n For booking you need to log in..')
+    }
 
     console.log(Country.getAllCountries())
     console.log(State.getStatesOfCountry("IN"))
@@ -106,16 +109,15 @@ export class BooknowComponent implements OnInit {
             }          
           }
         };
-        alert("Your estimated price is : "+ this.bookingForm.value.Price +" Rs");
-
-        // this.rs.add(this.bookingForm.value).subscribe((data: any) => {
-        //   console.log(data);
-        //   this.record = data;
-        // });
-        this.rs.order = this.bookingForm.value;
-        this.rs.book().subscribe((data) =>{
-          this.router.navigateByUrl(data["link"]);
-        })
+        if(this.rs.loggedIn()){
+          alert("Your estimated price is : "+" Rs. "+ this.bookingForm.value.Price );
+          this.rs.order = this.bookingForm.value;
+          this.router.navigateByUrl('/Payment');
+        }
+        else{
+          alert("You need to log in first")
+          this.router.navigateByUrl('/Login');
+        }
       }
     }
 
@@ -142,17 +144,16 @@ export class BooknowComponent implements OnInit {
           }
         }
       };
-      
-      alert("Your estimated price is : "+ this.bookingForm.value.Price +" Rs");
 
-      // this.rs.add(this.bookingForm.value).subscribe((data: any) => {
-      //   console.log(data);
-      //   this.record = data;
-      // });
-      this.rs.order = this.bookingForm.value;
-      this.rs.book().subscribe((data) =>{
-        this.router.navigateByUrl(data["link"]);
-      })
+      if(this.rs.loggedIn()){
+          alert("Your estimated price is : "+" Rs. "+ this.bookingForm.value.Price );
+          this.rs.order = this.bookingForm.value;
+          this.router.navigateByUrl('/Payment');
+      }
+      else{
+        alert("You need to log in first")
+        this.router.navigateByUrl('/Login');
+      }
     }
   }
 
@@ -249,6 +250,5 @@ export class BooknowComponent implements OnInit {
       this.City_to = true;
 
     }
-  }
-
+  } 
 }

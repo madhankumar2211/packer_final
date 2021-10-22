@@ -29,38 +29,23 @@ export class LoginComponent implements OnInit {
   get psw() {
 	return this.loginForm.controls['psw'];
   }
-  onSubmit(){
-	this.submitted = true;
-  this.error =''
-	if(this.loginForm.status === "VALID"){
-      this.uS.login(this.loginForm.value).subscribe((data) => {
-          console.log(data);
-          alert("Successfully Logged In..Welcome " + data.name);
-          //this.uS.logoinuser();
-          this.router.navigateByUrl('/Home');  
-      },
-      (err) =>{
-          this.error = err.error.text;
-          console.log(this.error);
-      });
-	}
+  onSubmit()
+  {
+    this.submitted = true;
+    if(this.loginForm.status === "VALID"){
+        this.uS.login(this.loginForm.value).subscribe((data) => {          
+            localStorage.setItem('token', data.token);
+            alert("Successfully Logged In..Welcome " + data.data.name);
+            this.router.navigateByUrl('/Home');  
+        },
+        (err) =>{
+          this.error = err.error.text
+            console.log(err);
+        });
+    }
   }
-  // logout(){      
-  //     this.uS.logout().subscribe((data)=>{
-  //         console.log(data);
-  //         alert('Log out')
-  //         this.router.navigateByUrl('/register')
-  //     },
-  //     (err) => {
-  //       console.log(err);
-        
-  //       const e = err
-  //       if(e.status === 404)
-  //       {
-  //         alert('You are not logged in')
-  //         this.router.navigateByUrl('/register')
-  //       }
-        
-  //     })
-  // }
+  logout(){      
+      this.uS.logout();
+      alert("logout successfully")
+  }
 }

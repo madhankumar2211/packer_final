@@ -1,7 +1,5 @@
-<div id="hed">
-
-    <br /><br />
-    <h1>TRACK YOUR SHIPMENT</h1>
+<div class="Heading">
+    <h1 class="title">TRACK YOUR SHIPMENT</h1>
 </div>
 
 <div id="all_all">
@@ -41,7 +39,7 @@
             <br />
             <br />
             <!-- <button type="submit"  value="Track">Track</button>*/ -->
-            <input type="submit" [disabled]="!alldata.valid" value="Track">
+            <input type="submit"  value="Track">
             <!-- <a href="#par">mmm</a> -->
 
 
@@ -61,18 +59,20 @@
         <h4 style="color: blue">TRACKING ID : {{track}}</h4>
     </div>
     <br />
-    <div id="sec2">
+    <div class="pbar">
 
         <ul>
             <li>
-                <h5 style="color: blue">STATUS : {{status}}</h5>
+                <h5 style="color: blue">STATUS    : {{status}}</h5>
             </li>
             <li>
-                <h5 style="color:blue">MOBILE : {{phone}} </h5>
+                <h5 style="color:blue">MOBILE     : {{phone}} </h5>
             </li>
-
             <li>
-                <h5 style="color: blue">BOOKING DATE:{{bdate}} </h5>
+                <h5 style="color: blue">BOOKING DATE     :{{bdate}} </h5>
+            </li>
+            <li>
+                <h5 style="color: blue">DELIVERY DATE    :{{ddate}} </h5>
             </li>
 
         </ul>
@@ -81,26 +81,27 @@
     <br />
     <br />
     <div id="sec3">
-        <ul>
-            <li>
-                <img src="../../assets/images/STRAT.jfif" />
+           <div class="stimg">
+                <img src="../../assets/images/STRAT.jfif" width="80px" />
 
                 <p style="color:green">START</p>
-            </li>
+            </div>
 
-            <li>
-                <img src="../../assets/images/RUN.png" />
+            <div class="stimg">
+                <img src="../../assets/images/RUN.png" width="80px"/>
                 <p style="color:orange">GOING</p>
-            </li>
+            </div>
 
 
-            <li>
-                <img src="../../assets/images/HHOME.png" />
+            <div class="stimg">
+                <img src="../../assets/images/HHOME.png" width="80px"/>
 
                 <p style="color:blue">REACH</p>
-            </li>
+            </div>
+    </div>
+    <div class="pbar">
+        <progress class="file" value={{bar}} max="100"> 32% </progress>
 
-        </ul>
     </div>
     <br />
     <br />

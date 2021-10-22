@@ -38,7 +38,7 @@ export class ForgotComponent implements OnInit {
       {
         this.uS.updatepassword(this.userForm.value).subscribe((data) => {         
           alert("password updated")
-          this.router.navigateByUrl('/login')
+          this.router.navigateByUrl('/Login')
         })
       }
       else{
@@ -54,9 +54,6 @@ export class ForgotComponent implements OnInit {
   }
 
   profile(){
-    
-    this.uS.profile().subscribe((data) =>{
-      this.router.navigateByUrl(data["link"]);
-    })
+    this.router.navigateByUrl('/Profile');
   }
 }

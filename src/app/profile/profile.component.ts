@@ -36,9 +36,9 @@ export class ProfileComponent implements OnInit {
       this.allorder = o;
       console.log("All orders of the user",this.allorder);
       this.allorder.forEach(element => {
-        if(element.recordStatus == 1){
+        if(element.Record_status == 1){
           this.count = false
-        }else if (element.recordStatus == 0){
+        }else if (element.Record_status == 0){         
           this.completed = false
         }
         else{

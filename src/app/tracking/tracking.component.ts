@@ -15,6 +15,8 @@ export class TrackingComponent implements OnInit {
   status:any;
   phone:any;
   bdate:any;
+  ddate : any;
+  bar:any;
 
   // constructor(public iS:InformService,public http:HttpClient) { }
   alldatas:any
@@ -45,14 +47,30 @@ get f(){
     console.log(this.alldata);
     
       // this.router.navigateByUrl('/second')
-      this.pS.getListOne(this.alldata.value.tid).subscribe((data) => {
-        this.track = data["tid"];
-        this.bdate = data["bd"];
-        this.status = data["status"];
-        this.phone = data["mob"];
+      this.pS.getListOne(this.alldata.value).subscribe((data) => {
+        console.log(data.order_status);
+        console.log("hii");
+        
+        
+        this.track = data["_id"];
+        this.bdate = data.order_status["b_date"];
+        this.status = data.order_status["status"];
+        this.phone = data.order_status["phone"];
+        this.ddate = data.order_status["d_date"];
         
         console.log(data['tid']);
-        
+
+        if(this.status == "Start"){
+          this.bar = 32;
+        }
+        else if(this.status == "Processing")
+        {
+          this.bar = 70;
+        }
+        else{
+          this.bar = 100;
+
+        }
         
       })
    

@@ -10,7 +10,7 @@ import { MainComponent } from './main/main.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HttpClient, HttpClientModule} from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { WhychooseusComponent } from './whychooseus/whychooseus.component';
 import { BooknowComponent } from './booknow/booknow.component';
@@ -24,6 +24,8 @@ import { PaymentComponent } from './payment/payment.component';
 import { QuoteComponent } from './quote/quote.component';
 import { UpdateprofieComponent } from './updateprofie/updateprofie.component';
 import { HeadComponent } from './head/head.component';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { HeadingComponent } from './heading/heading.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { HeadComponent } from './head/head.component';
     PaymentComponent,
     QuoteComponent,
     UpdateprofieComponent,
-    HeadComponent
+    HeadComponent,
+    HeadingComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,7 @@ import { HeadComponent } from './head/head.component';
       
     ])
     ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS ,useClass:AuthInterceptorService,multi :true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,9 +14,7 @@ export class ProfileService {
   // }
   //profile
   getSpecifiedUser() {
-    return this.http.get("http://localhost:7080/user", {
-      withCredentials: true
-    })
+    return this.http.get("http://localhost:7080/user")
   }
 
 
@@ -27,7 +25,7 @@ export class ProfileService {
   }
   //order
   getallorder() {
-    return this.http.get(`http://localhost:7080/vieworder/614ee5566ce0ef9e7f6822b3`);
+    return this.http.get(`http://localhost:7080/vieworder`);
   }
 
   cancelorder(order) {
@@ -41,7 +39,8 @@ export class ProfileService {
   }
   //tracking
   getListOne(tid){
-    return this.http.get(`http://localhost:9080/data/${tid}`
-
-    )}
+    console.log(tid);
+    
+    return this.http.post<any>('http://localhost:7080/tracking',tid)
+  }
 }

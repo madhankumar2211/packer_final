@@ -19,37 +19,13 @@ export class HeadComponent implements OnInit {
   }
 
   profile(){
-    
-    this.uS.profile().subscribe((data) =>{
-      this.router.navigateByUrl(data["link"]);
-    })
+    this.router.navigateByUrl('/Profile');
   }
-  tracking(){
-    
-    this.uS.tracking().subscribe((data) =>{
-      this.router.navigateByUrl(data["link"]);
-    })
+  logout()
+  {      
+    this.uS.logout()
   }
-  logout(){      
-    this.uS.logout().subscribe((data)=>{
-        console.log(data);
-        alert('Log out')
-        //this.uS.logoutuser();
-        this.router.navigateByUrl('/Login')
-    },
-    (err) => {
-      console.log(err);
-      
-      const e = err
-      if(e.status === 404)
-      {
-        alert('You are not logged in')
-        this.router.navigateByUrl('/Login')
-      }
-      
-    })
 }
 
-}
 
 
