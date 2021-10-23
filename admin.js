@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 const { MongoClient, ObjectId } = require('mongodb');
-const url = 'mongodb://127.0.0.1:27017/';
+const url = 'mongodb+srv://merit:meritbackend1@cluster0.8rqc2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 router.use(express.urlencoded({ extended: true }));
 router.use(express.json());
