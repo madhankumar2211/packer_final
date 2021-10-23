@@ -11,7 +11,7 @@ export class AuthInterceptorService implements HttpInterceptor {
   constructor(private uS: UsersService) { }
 
   intercept(req, next) {
-    console.log("interceptor Running");
+    //console.log("interceptor Running");
     
     let tokenizeReq = req.clone({
       setHeaders: {

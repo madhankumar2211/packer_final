@@ -23,7 +23,7 @@
                <h5><div *ngIf="f.mob.touched && f.mob.errors?.required">Mobile Number is required.</div>  
                 <div *ngIf="f.mob.touched && f.mob.errors?.pattern">Please, Enter 10 digit Mobile Number.</div>  </h5>   -->
             <br />
-            <input type="text" name="txt" placeholder="Track ID Eg:ABC123" pattern="[A-Z]{3}[0-9]{3}"
+            <input type="text" name="txt" placeholder="Track ID" pattern="[A-Z]{3}[0-9]{3}"
                 formControlName="tid"><br /><br />
             <h5 style="color:royalblue">
                 <div *ngIf="f.tid.touched && f.tid.errors?.required">
@@ -66,7 +66,7 @@
                 <h5 style="color: blue">STATUS    : {{status}}</h5>
             </li>
             <li>
-                <h5 style="color:blue">MOBILE     : {{phone}} </h5>
+                <h5 style="color:blue">DRIVER MOBILE NO.    : {{phone}} </h5>
             </li>
             <li>
                 <h5 style="color: blue">BOOKING DATE     :{{bdate}} </h5>

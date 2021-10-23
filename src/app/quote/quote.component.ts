@@ -38,8 +38,8 @@ export class QuoteComponent implements OnInit {
 
   ngOnInit(): void {
     
-    console.log(Country.getAllCountries())
-    console.log(State.getStatesOfCountry("IN"))
+    //console.log(Country.getAllCountries())
+    //console.log(State.getStatesOfCountry("IN"))
     this.countries = State.getStatesOfCountry("IN")
 
 
@@ -105,7 +105,7 @@ export class QuoteComponent implements OnInit {
         };
 
         this.rs.addquote(this.quoteForm.value).subscribe((data: any) => {
-          console.log(data);
+          //console.log(data);
           this.record = data;
         });
         window.location.href="http://online.pubhtml5.com/orut/egyb/#p=1"
@@ -136,11 +136,13 @@ export class QuoteComponent implements OnInit {
         }
       };
       this.rs.addquote(this.quoteForm.value).subscribe((data: any) => {
-        console.log(data);
+        //console.log(data);
         this.record = data;
       });
       window.location.href="http://online.pubhtml5.com/orut/egyb/#p=1"
     }
+    alert("Your request submitted successfully....Our team will contact you soon")
+    this.quoteForm.reset();
   }
 
 
@@ -194,24 +196,24 @@ export class QuoteComponent implements OnInit {
   }
 
   Fcities() {
-    //console.log(City.getCitiesOfState("IN",this.bookingForm.value.to_State));{}
+    ////console.log(City.getCitiesOfState("IN",this.bookingForm.value.to_State));{}
     this.Fcity = City.getCitiesOfState("IN", this.quoteForm.value.From_state)
-    console.log(this.Fcity)
+    //console.log(this.Fcity)
 
   }
   Tcities() {
-    //console.log(this.bookingForm.value);
+    ////console.log(this.bookingForm.value);
     this.Tcity = City.getCitiesOfState("IN", this.quoteForm.value.To_state)
   }
   Flatlon(e) {
     let x = e.target.value
-    console.log(x);
+    //console.log(x);
     this.Flatlong = x.split(",")
     this.Sample_var = this.Flatlong.pop();
   }
   Tlatlon(e) {
     let x = e.target.value
-    console.log(x);
+    //console.log(x);
     this.Tlatlong = x.split(",")
     this.Sample_var1 = this.Tlatlong.pop();
 
@@ -221,10 +223,10 @@ export class QuoteComponent implements OnInit {
   within(x) {
 
     if (x.target.value == "Within") {
-      console.log(x.target.value);
+      //console.log(x.target.value);
 
       this.City_to = false;
-      console.log(this.City_to);
+      //console.log(this.City_to);
     } else {
       this.City_to = true;
 

@@ -20,7 +20,7 @@ export class ProfileService {
 
 
   updateuser(user: any) {
-    console.log('user id::', user._id);
+    //console.log('user id::', user._id);
     return this.http.put(`http://localhost:7080/updateuser/${user._id}`, user);
   }
   //order
@@ -29,7 +29,7 @@ export class ProfileService {
   }
 
   cancelorder(order) {
-    console.log("order id :: ", order._id);
+    //console.log("order id :: ", order._id);
     return this.http.put("http://localhost:7080/updateorder", order);
   }
 
@@ -39,7 +39,7 @@ export class ProfileService {
   }
   //tracking
   getListOne(tid){
-    console.log(tid);
+    //console.log(tid);
     
     return this.http.post<any>('http://localhost:7080/tracking',tid)
   }

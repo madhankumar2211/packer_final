@@ -44,12 +44,12 @@ get f(){
   }  
   getall(): void
   {
-    console.log(this.alldata);
+    //console.log(this.alldata);
     
       // this.router.navigateByUrl('/second')
       this.pS.getListOne(this.alldata.value).subscribe((data) => {
-        console.log(data.order_status);
-        console.log("hii");
+        //console.log(data.order_status);
+        //console.log("hii");
         
         
         this.track = data["_id"];
@@ -58,7 +58,7 @@ get f(){
         this.phone = data.order_status["phone"];
         this.ddate = data.order_status["d_date"];
         
-        console.log(data['tid']);
+        //console.log(data['tid']);
 
         if(this.status == "Start"){
           this.bar = 32;

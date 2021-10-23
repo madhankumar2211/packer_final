@@ -30,12 +30,12 @@ export class ContactusComponent implements OnInit {
     return this.contactform.controls['message'];
   }
   getalldetails(){
-    console.log(this.contactform.value);
+    //console.log(this.contactform.value);
     alert("Thank you...Request Submitted Successfully !...");
     
     this.ps.add(this.contactform.value).subscribe((data) => {
 
-      console.log(data);
+      //console.log(data);
 
       this.record = data;
 

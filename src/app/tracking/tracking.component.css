@@ -9,7 +9,9 @@
   width: 400px;
   height: 500px;
   box-sizing: border-box;
-  background: #42a4ff;
+  border-radius: 5px;
+  border: 4px solid  #42a4ff;
+  /* background: #42a4ff; */
   padding: 30px;
 }
 #all_all {
@@ -84,16 +86,13 @@
 #box input[type='text'],
 input[type='number'],
 input[type='date'] {
+  border-radius: 3px;
   border: none;
-  border-bottom: 1px solid #ffffff;
-  background-color: transparent;
-  outline: none;
+  border-bottom: 2px solid  #42a4ff;
   height: 40px;
-  color: #ffffff;
-  display: 16px;
 }
 ::placeholder {
-  color: #ffffff;
+  color: rgba(165, 164, 164, 0.829);
   font-size: medium;
 }
 #box label {
@@ -104,7 +103,7 @@ input[type='date'] {
   background-color: transparent;
   outline: none;
   height: 40px;
-  color: #ffffff;
+  /* color: #ffffff; */
   display: 18px;
 }
 #box input[type='submit'] {
@@ -113,7 +112,7 @@ input[type='date'] {
   outline: none;
   color: #ffffff;
   font-size: 16px;
-  background-color: blue;
+  background-color: rgb(12, 185, 238);
   cursor: pointer;
   border-radius: 20px;
 }
@@ -391,7 +390,7 @@ input[type='area'] {
   display: 16px;
 }
 ::placeholder {
-  color: #ffffff;
+  /* color: #ffffff; */
   font-size: medium;
 }
 

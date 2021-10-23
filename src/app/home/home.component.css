@@ -86,7 +86,8 @@
 
 
 section{
-	padding: 40px 0;
+	/* padding: 40px 0; */
+	padding-bottom: 40px;
 }
 .about{
 	font-family:sans-serif;

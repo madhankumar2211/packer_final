@@ -31,26 +31,38 @@
 }
 
 .container{
+    padding: 50px;
+    width:100%;
+}
+.scontainer{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+/* .container{
     width: 1300px;
     position: relative;
     top:30px;
     left:170px;
     display: inline-block;
     text-align: center;
-    /* align-items: center; */
-}
+    align-items: center;
+} */
 
 .container .box
 {
     background-color: thistle;
     width: 300px;
     height: 400px;
-    
+    border-radius: 7px;box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+
     margin: 20px;
     display: inline-block
 }
 
 .container .box .imgBox{
+    border-radius: 7px;box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+
     position: relative;
     overflow: hidden;
     
@@ -60,9 +72,16 @@
     max-width: 100%;
     height: 400px;
     transition: transform 2s;
+    border-radius: 7px;box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+
+
 }
 .container .box:hover .imgBox img{
     transform: scale(1.2);
+    border-radius: 7px;box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+
+
 }
 .container .box .details{
     position: relative;
@@ -74,6 +93,9 @@
     background:rgba(0, 0, 0, 0.6) ;
     transform: scaleY(0);
     transition: transform .6s;
+    border-radius: 7px;box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+
+
     /* z-index: 1; */
 }
 .container .box:hover .details{
@@ -220,6 +242,9 @@
     justify-content: space-evenly;
     flex-direction: column;
     background:skyblue;
+    box-shadow: 0px 0px 19px 5px rgba(17, 17, 17, 0.425);
+
+
 }
 .counter .content .box img
 {
@@ -253,7 +278,10 @@
 
     }  */
     .counter .content .box{
-       width:100%
+        width:100%;
+        border-radius: 7px;
+        box-shadow: 0px 0px 19px 5px rgba(20, 20, 20, 0.479);
+
     } 
     .counter .content .box .count{
         font-size: 30px;

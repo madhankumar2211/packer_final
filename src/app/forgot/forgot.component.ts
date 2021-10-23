@@ -43,7 +43,7 @@ export class ForgotComponent implements OnInit {
       }
       else{
         this.uS.forgot(this.userForm.value).subscribe((resp :any) => {
-          console.log(resp);
+          //console.log(resp);
           this.valid = true
         },(err) => {
           this.error = err.error;

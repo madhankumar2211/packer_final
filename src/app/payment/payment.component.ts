@@ -24,7 +24,7 @@ export class PaymentComponent implements OnInit {
       this.router.navigateByUrl('/Login')
     }
     else{
-      console.log(this.us.order);
+      //console.log(this.us.order);
       
       this.amt = this.us.order.Price
       this.buildForm();
@@ -99,18 +99,18 @@ export class PaymentComponent implements OnInit {
     this.displayMessage = 'Payment Successful!';
   }
   fun() {
-    console.log(this.paymentForm.value);
+    //console.log(this.paymentForm.value);
 
     this.us.addpayment(this.paymentForm.value).subscribe((data) => {
-      console.log(data);
+      //console.log(data);
 
       this.record = data;
     });
 
     var or = this.us.order
     this.us.add(or).subscribe((data: any) => {
-        console.log(data);
-        console.log("hii");
+        //console.log(data);
+        //console.log("hii");
         
         this.record = data;
         alert(`Order Id : ${data.insertedId}`)

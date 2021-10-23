@@ -10,7 +10,6 @@ export class AppComponent {
   title = 'app';
 
   constructor(public uS : UsersService) {
-    console.log("welcome");
     if(this.uS.loggedIn()){
       this.uS.autologin()
     }

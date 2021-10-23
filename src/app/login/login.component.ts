@@ -35,12 +35,15 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.status === "VALID"){
         this.uS.login(this.loginForm.value).subscribe((data) => {          
             localStorage.setItem('token', data.token);
+            this.uS.user = data.data;
+            this.uS.isloggedin.next(true)
             alert("Successfully Logged In..Welcome " + data.data.name);
             this.router.navigateByUrl('/Home');  
         },
         (err) =>{
+          this.uS.isloggedin.next(false)
           this.error = err.error.text
-            console.log(err);
+          //console.log(err);
         });
     }
   }

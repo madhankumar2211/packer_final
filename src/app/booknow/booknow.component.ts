@@ -37,8 +37,8 @@ export class BooknowComponent implements OnInit {
       alert('You are a not Logged In user.....Still you can get Quote from us.\n For booking you need to log in..')
     }
 
-    console.log(Country.getAllCountries())
-    console.log(State.getStatesOfCountry("IN"))
+    //console.log(Country.getAllCountries())
+    //console.log(State.getStatesOfCountry("IN"))
     this.countries = State.getStatesOfCountry("IN")
 
 
@@ -57,7 +57,7 @@ export class BooknowComponent implements OnInit {
     this.bookingForm = this.fb.group({
       Cus_name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       Cus_number: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[6-9]{1}?[0-9]{9}$")]],
-      Package_weight: ['', [Validators.required, Validators.pattern("^$|^([0-9]|[0-9][0-9]|[0-9][0-9][0-9])?")]],
+      // Package_weight: ['', [Validators.required, Validators.pattern("^$|^([0-9]|[0-9][0-9]|[0-9][0-9][0-9])?")]],
       Product_shipping: [],
       Vehicle_type: [],
       From_door_and_address: ['', [Validators.required, Validators.pattern("^[#.0-9a-zA-Z\s,-]+$")]],
@@ -155,6 +155,7 @@ export class BooknowComponent implements OnInit {
         this.router.navigateByUrl('/Login');
       }
     }
+    this.bookingForm.reset();
   }
 
   get name() {
@@ -215,24 +216,24 @@ export class BooknowComponent implements OnInit {
   }
 
   Fcities() {
-    //console.log(City.getCitiesOfState("IN",this.bookingForm.value.to_State));{}
+    ////console.log(City.getCitiesOfState("IN",this.bookingForm.value.to_State));{}
     this.Fcity = City.getCitiesOfState("IN", this.bookingForm.value.From_state)
-    console.log(this.Fcity)
+    //console.log(this.Fcity)
 
   }
   Tcities() {
-    //console.log(this.bookingForm.value);
+    ////console.log(this.bookingForm.value);
     this.Tcity = City.getCitiesOfState("IN", this.bookingForm.value.To_state)
   }
   Flatlon(e) {
     let x = e.target.value
-    console.log(x);
+    //console.log(x);
     this.Flatlong = x.split(",")
     this.Sample_var = this.Flatlong.pop();
   }
   Tlatlon(e) {
     let x = e.target.value
-    console.log(x);
+    //console.log(x);
     this.Tlatlong = x.split(",")
     this.Sample_var1 = this.Tlatlong.pop();
 
@@ -242,10 +243,10 @@ export class BooknowComponent implements OnInit {
   within(x) {
 
     if (x.target.value == "Within") {
-      console.log(x.target.value);
+      //console.log(x.target.value);
 
       this.City_to = false;
-      console.log(this.City_to);
+      //console.log(this.City_to);
     } else {
       this.City_to = true;
 

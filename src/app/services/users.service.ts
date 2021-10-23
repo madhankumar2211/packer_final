@@ -11,6 +11,7 @@ export class UsersService {
   order : any;
   private URL = 'http://localhost:7080';
   isloggedin = new BehaviorSubject(false)
+  user:any;
 
 
   constructor(public http: HttpClient,public router : Router) { }
@@ -23,7 +24,6 @@ export class UsersService {
     return this.http.put(this.URL + '/updatepassword', x);
   }
   login(x) {
-    this.isloggedin.next(true)
     return this.http.post<any>(this.URL + '/login', x);
   }
   register(x) {
@@ -34,6 +34,10 @@ export class UsersService {
     localStorage.removeItem('token');
     this.router.navigate(['/Login']);
   }
+
+  loggedUser(){
+    return this.http.get(this.URL + '/user');
+  }
   autologin(){
     this.isloggedin.next(true)
   }
@@ -43,16 +47,16 @@ export class UsersService {
   }
   
   getToken() {
-    console.log(localStorage.getItem('token'));
+    //console.log(localStorage.getItem('token'));
     
     return localStorage.getItem('token');
   }
 
   //-------------------------------------------------------------------
 
-  // profile() {
-  //   return this.http.get(this.URL + '/Profile');
-  // }
+  profile() {
+    return this.http.get(this.URL + '/Profile');
+  }
   // book() {
   //   return this.http.get(this.URL + '/Payment')
   // }

@@ -39,7 +39,7 @@ export class UpdateprofieComponent implements OnInit {
         this.regForm.get('phone').setValue(value.phone),
         this.regForm.get('psw').setValue(value.psw),
         this.regForm.get('_id').setValue(value._id)
-        console.log(value);
+        //console.log(value);
         
       });
     
@@ -50,9 +50,9 @@ export class UpdateprofieComponent implements OnInit {
 
 
   update(){
-    console.log(this.regForm.value);
+    //console.log(this.regForm.value);
     this.pS.updateuser(this.regForm.value).subscribe((x) => {
-      console.log(x);
+      //console.log(x);
       this.router.navigate(['/Profile']);
     });
   }

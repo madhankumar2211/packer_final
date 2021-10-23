@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
 			delete this.val['rpsw']
 			this.uS.register(this.val)
 			.subscribe((data) => {
-			console.log(data);
+			//console.log(data);
 			alert("Registered Successfully...You can login now")
 			this.router.navigateByUrl('/Login');
 			},
